@@ -782,21 +782,30 @@ body .capitalize {
 
 
 
-/* Category slider slide width & visibility fix for Flickity slider */
-.category-slider .flickity-slider > .row,
-.category-slider .flickity-slider > div:not(.flickity-button) {
-  width: 80% !important;
-  max-width: 80% !important;
+
+/* Master Category Slider Fix - Ultra High Specificity Override for Vercel & All Browsers */
+html body .category-slider .flickity-slider > div,
+html body .category-slider .flickity-slider > .row,
+html body .category-slider .slider > div,
+html body .category-slider .slider > .row {
+  width: 85% !important;
+  max-width: 85% !important;
+  flex: 0 0 85% !important;
+  flex-basis: 85% !important;
   opacity: 1 !important;
   visibility: visible !important;
   margin-right: 20px !important;
 }
 
 @media (min-width: 850px) {
-  .category-slider .flickity-slider > .row,
-  .category-slider .flickity-slider > div:not(.flickity-button) {
-    width: 45% !important;
-    max-width: 45% !important;
+  html body .category-slider .flickity-slider > div,
+  html body .category-slider .flickity-slider > .row,
+  html body .category-slider .slider > div,
+  html body .category-slider .slider > .row {
+    width: 46% !important;
+    max-width: 46% !important;
+    flex: 0 0 46% !important;
+    flex-basis: 46% !important;
     opacity: 1 !important;
     visibility: visible !important;
     margin-right: 20px !important;
