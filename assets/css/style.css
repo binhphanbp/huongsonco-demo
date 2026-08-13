@@ -123,6 +123,33 @@ body .no-divider::after {
   display: none !important;
 }
 
+/* High Contrast Section Titles inside Dark Background Sections */
+.dark .section-title .section-title-main,
+body .dark .section-title .section-title-main,
+.dark-bg .section-title .section-title-main {
+  color: #ffffff !important;
+}
+.dark .section-title .section-title-main::after,
+body .dark .section-title .section-title-main::after {
+  background: linear-gradient(90deg, #f7d070 0%, #c8962e 100%) !important;
+}
+.dark .section-title::after,
+body .dark .section-title::after {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+.dark .section-title a,
+body .dark .section-title a {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+.dark .section-title a:hover,
+body .dark .section-title a:hover {
+  background: #c8962e !important;
+  border-color: #c8962e !important;
+}
+
+
 /* Modern Pill Styling for 'Xem thêm' section links */
 body .section-title a {
   margin-left: auto;
