@@ -1,25 +1,37 @@
-# Huong Son Co Demo - Flatsome Blog Template (Model 8089)
+# Hương Sơn - Website Công Ty TNHH TM&DV Hương Sơn
 
-Website mẫu chia sẻ thông tin công nghệ sử dụng Flatsome Theme (HTML, CSS, JS).
+Website giới thiệu công ty và sản phẩm thiết bị văn phòng Hương Sơn, sử dụng Flatsome Theme (HTML, CSS, JS).
+
+## 🏢 Thông tin công ty
+- **Tên**: Công ty TNHH Thương mại và Dịch vụ Hương Sơn
+- **Lĩnh vực**: Máy photocopy, máy in siêu tốc, thiết bị sau in, văn phòng phẩm
+- **Đại lý chính thức**: DUPLO (Nhật Bản), TOSHIBA, Konica Minolta
+- **Hotline**: 024.3972 9484 – 0913 237 302 – 091 113 8583
+- **Email**: info@huongsonco.com.vn
 
 ## 🚀 Đặc điểm nổi bật
 - **Tech stack**: HTML5, CSS3, Vanilla JavaScript, jQuery, Flickity Slider
-- **Giao diện chuẩn mẫu**: Re-clone 100% nguyên bản từ mẫu Mắt Bão WS 8089 (`blog-tech.matbao.website`)
-- **Tối ưu hóa**: Đã dọn sạch 100% mã rác WordPress, tracking scripts và tối ưu toàn bộ tài nguyên `assets/`
-- **Bộ Icon Font**: Tích hợp đầy đủ `matbaows-icons` & `fl-icons`
-- **Tương thích**: Đáp ứng tốt trên các thiết bị Desktop, Tablet và Mobile
+- **Giao diện**: Flatsome Theme chuẩn responsive
+- **Tối ưu hóa**: Toàn bộ tài nguyên lưu trữ local, không phụ thuộc CDN
 
 ## 📂 Cấu trúc thư mục
-- `assets/css/`: `flatsome.css`, `style.css`, `matbaows-icons.min.css`
-- `assets/js/`: `flatsome.js`, `chunk.slider.js`, `chunk.popups.js`, `chunk.tooltips.js`, `jquery.min.js`, `main.js`
-- `assets/fonts/`: Font icon `fl-icons` & `matbaows-icons`
-- `assets/images/`: Toàn bộ hình ảnh banner, slider, logo & bài viết
-- `tin-tuc/`: Danh mục & 19 bài viết mẫu
-- `lien-he/`: Trang liên hệ
-- `cong-nghe/`, `dien-thoai-thong-minh/`, `laptop-pc/`, `truyen-thong-xa-hoi/`: Các trang danh mục
+```
+├── assets/
+│   ├── css/        (flatsome.css, style.css, matbaows-icons.min.css)
+│   ├── js/         (flatsome.js, chunk.slider.js, jquery.min.js, main.js, ...)
+│   ├── fonts/      (fl-icons, matbaows-icons)
+│   └── images/     (Logo, banner, sản phẩm, tin tức, đối tác)
+├── index.html       ← Trang chủ
+├── may-photocopy/   ← Danh mục Máy Photocopy
+├── may-in-sieu-toc/ ← Danh mục Máy In Siêu Tốc
+├── thiet-bi-sau-in/ ← Danh mục Thiết Bị Sau In
+├── van-phong-pham/  ← Danh mục Văn Phòng Phẩm
+├── tin-tuc/         ← Tin tức & bài viết
+└── lien-he/         ← Trang liên hệ
+```
 
 ## 🛠️ Chạy dự án
-Mở file `index.html` trực tiếp trên trình duyệt hoặc chạy với HTTP Server local:
 ```bash
 python3 -m http.server 8080
 ```
+Truy cập: http://localhost:8080/
