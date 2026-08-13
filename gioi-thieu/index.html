@@ -199,6 +199,18 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <div class="header-bg-container fill"><div class="header-bg-image fill"></div><div class="header-bg-color fill"></div></div>		</div>
 	</header>
+
+<!-- Slide-down Search Bar -->
+<div id="header-search-dropdown">
+  <div class="container" style="max-width:1240px; margin:0 auto; padding:0 15px;">
+    <form method="get" class="searchform" action="./" role="search" style="display:flex; align-items:center; gap:10px;">
+      <input type="search" id="header-search-input" name="s" placeholder="Nhập từ khóa tìm kiếm..." autocomplete="off" />
+      <button type="submit" aria-label="Tìm kiếm"><i class="icon-search"></i></button>
+      <a href="#" id="header-search-close" aria-label="Đóng" onclick="event.preventDefault();document.getElementById('header-search-dropdown').classList.remove('is-open');">&times;</a>
+    </form>
+  </div>
+</div>
+
 <style>
 /* Header professional styling - Huong Son */
 #header {
