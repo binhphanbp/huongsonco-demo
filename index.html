@@ -1463,212 +1463,145 @@ function switchHeroShowcase(idx) {
 	
 	
 	
-	<section class="section ss-bg-left dark" id="section_1457457926">
-		<div class="bg section-bg fill bg-fill  bg-loaded" >
+	<!-- DANH MỤC SẢN PHẨM SECTION -->
+<section class="section category-section-huongson dark" id="section_1457457926">
+  <div class="container-left relative">
+    <div class="row row-collapse align-middle" style="display:flex; flex-wrap:wrap; align-items:center;">
+      
+      <!-- Left Info Box -->
+      <div class="col medium-4 small-12 large-4 category-left-col" style="padding-right:30px; margin-bottom:25px;">
+        <div class="section-title dark" style="margin-bottom:15px;">
+          <h2 class="section-title-main" style="color:#ffffff !important; font-size:22px !important; font-weight:800 !important; text-transform:uppercase; letter-spacing:0.5px;">
+            DANH MỤC SẢN PHẨM
+          </h2>
+        </div>
+        <p style="color:rgba(255,255,255,0.85); font-size:14.5px; line-height:1.6; margin-bottom:22px; max-width:340px;">
+          Khám phá các dòng thiết bị văn phòng chính hãng từ Hương Sơn với giải pháp toàn diện cho mọi nhu cầu in ấn doanh nghiệp.
+        </p>
 
-			
-			
-			
+        <div style="display:flex; gap:12px; align-items:center;">
+          <a href="./san-pham/" class="button primary" style="background:#c8962e; color:#ffffff !important; font-size:13px; font-weight:700; padding:10px 22px; border-radius:20px; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">
+            XEM TẤT CẢ ›
+          </a>
+          <!-- Custom Slider Nav Arrows -->
+          <div class="category-slider-nav" style="display:inline-flex; gap:8px;">
+            <button class="cat-nav-btn cat-prev" onclick="prevCategorySlide()" aria-label="Slide trước" style="width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.1); color:#ffffff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
+              <i class="icon-angle-left"></i>
+            </button>
+            <button class="cat-nav-btn cat-next" onclick="nextCategorySlide()" aria-label="Slide sau" style="width:36px; height:36px; border-radius:50%; border:1px solid rgba(255,255,255,0.3); background:rgba(255,255,255,0.1); color:#ffffff; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:all 0.2s ease;">
+              <i class="icon-angle-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
 
-		</div>
+      <!-- Right Slider Track -->
+      <div class="col medium-8 small-12 large-8 category-right-col" style="overflow:hidden;">
+        <div class="category-cards-slider" id="categoryCardsSlider" style="display:flex; gap:20px; transition:transform 0.4s cubic-bezier(0.25, 1, 0.5, 1); cursor:grab; padding:10px 0;">
+          
+          <!-- Card 1: Máy Photocopy -->
+          <div class="cat-card-item" style="flex:0 0 270px; width:270px; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,0.25); position:relative; group">
+            <a href="./san-pham/" style="text-decoration:none; display:block;">
+              <div style="height:280px; overflow:hidden; position:relative; background:#f8faf9;">
+                <img src="./assets/images/products/m-y-photocopy-toshiba-e-studio-3028a.jpg" alt="Máy Photocopy" style="width:100%; height:100%; object-fit:contain; padding:20px; transition:transform 0.4s ease;" class="cat-card-img" />
+                <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);"></div>
+                <div style="position:absolute; bottom:18px; left:20px; right:20px; color:#ffffff;">
+                  <span style="display:inline-block; background:#c8962e; color:#fff; font-size:10px; font-weight:700; padding:3px 8px; border-radius:4px; text-transform:uppercase; margin-bottom:6px;">TOSHIBA & RICOH</span>
+                  <h3 style="color:#ffffff !important; font-size:18px; font-weight:700; margin:0 0 4px 0;">Máy Photocopy</h3>
+                  <p style="color:rgba(255,255,255,0.8); font-size:12px; margin:0;">Bán & Cho thuê chính hãng</p>
+                </div>
+              </div>
+            </a>
+          </div>
 
-		
+          <!-- Card 2: Máy In Siêu Tốc -->
+          <div class="cat-card-item" style="flex:0 0 270px; width:270px; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,0.25); position:relative;">
+            <a href="./san-pham/" style="text-decoration:none; display:block;">
+              <div style="height:280px; overflow:hidden; position:relative; background:#f8faf9;">
+                <img src="./assets/images/products/m-y-nh-n-b-n-si-u-t-c-duplo-dp-x550.jpg" alt="Máy In Siêu Tốc" style="width:100%; height:100%; object-fit:contain; padding:20px; transition:transform 0.4s ease;" class="cat-card-img" />
+                <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);"></div>
+                <div style="position:absolute; bottom:18px; left:20px; right:20px; color:#ffffff;">
+                  <span style="display:inline-block; background:#1b6f3c; color:#fff; font-size:10px; font-weight:700; padding:3px 8px; border-radius:4px; text-transform:uppercase; margin-bottom:6px;">DUPLO JAPAN</span>
+                  <h3 style="color:#ffffff !important; font-size:18px; font-weight:700; margin:0 0 4px 0;">Máy In Siêu Tốc</h3>
+                  <p style="color:rgba(255,255,255,0.8); font-size:12px; margin:0;">In nhân bản tốc độ cao</p>
+                </div>
+              </div>
+            </a>
+          </div>
 
-		<div class="section-content relative">
-			
-<div class="row row-collapse row-full-width align-middle container-left"  id="row-353308198">
+          <!-- Card 3: Thiết Bị Sau In -->
+          <div class="cat-card-item" style="flex:0 0 270px; width:270px; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,0.25); position:relative;">
+            <a href="./san-pham/" style="text-decoration:none; display:block;">
+              <div style="height:280px; overflow:hidden; position:relative; background:#f8faf9;">
+                <img src="./assets/images/products/m-y-ph-i-trang-s-p-x-p-t-i-li-u-duplo-dfc-122.jpg" alt="Thiết Bị Sau In" style="width:100%; height:100%; object-fit:contain; padding:20px; transition:transform 0.4s ease;" class="cat-card-img" />
+                <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);"></div>
+                <div style="position:absolute; bottom:18px; left:20px; right:20px; color:#ffffff;">
+                  <span style="display:inline-block; background:#c8962e; color:#fff; font-size:10px; font-weight:700; padding:3px 8px; border-radius:4px; text-transform:uppercase; margin-bottom:6px;">THIẾT BỊ PHỤ TRỢ</span>
+                  <h3 style="color:#ffffff !important; font-size:18px; font-weight:700; margin:0 0 4px 0;">Thiết Bị Sau In</h3>
+                  <p style="color:rgba(255,255,255,0.8); font-size:12px; margin:0;">Máy phối trang, cắt & gấp nếp</p>
+                </div>
+              </div>
+            </a>
+          </div>
 
-	<div id="col-485387425" class="col medium-4 small-12 large-4"  data-animate="fadeInUp">
-				<div class="col-inner"  >
-			
-			
-<div class="container section-title-container widget-title" ><h2 class="section-title section-title-normal"><b></b><span class="section-title-main" style="font-size:110%;">Danh mục sản phẩm</span><b></b></h2></div>
-<p>Khám phá các dòng thiết bị văn phòng chính hãng từ Hương Sơn.</p>
-		</div>
-				
-<style>
-#col-485387425 > .col-inner {
-  padding: 0px 0px 0px 15px;
-}
-</style>
-	</div>
+          <!-- Card 4: Văn Phòng Phẩm -->
+          <div class="cat-card-item" style="flex:0 0 270px; width:270px; background:#ffffff; border-radius:14px; overflow:hidden; box-shadow:0 12px 30px rgba(0,0,0,0.25); position:relative;">
+            <a href="./san-pham/" style="text-decoration:none; display:block;">
+              <div style="height:280px; overflow:hidden; position:relative; background:#f8faf9;">
+                <img src="./assets/images/products/m-y-in-laser-da-ch-c-n-ng-toshiba-e-studio-409s.jpg" alt="Văn Phòng Phẩm" style="width:100%; height:100%; object-fit:contain; padding:20px; transition:transform 0.4s ease;" class="cat-card-img" />
+                <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%);"></div>
+                <div style="position:absolute; bottom:18px; left:20px; right:20px; color:#ffffff;">
+                  <span style="display:inline-block; background:#1b6f3c; color:#fff; font-size:10px; font-weight:700; padding:3px 8px; border-radius:4px; text-transform:uppercase; margin-bottom:6px;">VẬT TƯ CHÍNH HÃNG</span>
+                  <h3 style="color:#ffffff !important; font-size:18px; font-weight:700; margin:0 0 4px 0;">Văn Phòng Phẩm</h3>
+                  <p style="color:rgba(255,255,255,0.8); font-size:12px; margin:0;">Mực in, giấy & linh kiện máy</p>
+                </div>
+              </div>
+            </a>
+          </div>
 
-	
+        </div>
+      </div>
 
-	<div id="col-666684848" class="col medium-8 small-12 large-8"  data-animate="blurIn">
-				<div class="col-inner"  >
-			
-			
-	<div class="img has-hover absolute left bottom x md-x lg-x y md-y lg-y" id="image_2096216477">
-								<div class="img-inner image-cover dark" style="padding-top:200%;margin:0px 0px -30px 0px;">
-			<img loading="lazy" decoding="async" width="1020" height="404" src="./assets/images/Dot_Pattern-1.svg" class="attachment-large size-large" alt="" />						
-					</div>
-								
-<style>
-#image_2096216477 {
-  width: 32%;
-}
-</style>
-	</div>
-	
-<div class="slider-wrapper relative category-slider" id="slider-498180554" >
-    <div class="slider slider-nav-simple slider-nav-large slider-nav-light slider-style-normal slider-show-nav"
-        data-flickity-options='{
-            "cellAlign": "left",
-            "imagesLoaded": true,
-            "lazyLoad": 1,
-            "freeScroll": false,
-            "wrapAround": true,
-            "autoPlay": false,
-            "pauseAutoPlayOnHover" : true,
-            "prevNextButtons": true,
-            "contain" : true,
-            "adaptiveHeight" : true,
-            "dragThreshold" : 10,
-            "percentPosition": true,
-            "pageDots": false,
-            "rightToLeft": false,
-            "draggable": true,
-            "selectedAttraction": 0.1,
-            "parallax" : 0,
-            "friction": 0.6        }'
-        >
-        
-<div class="col category-slide-col small-12 medium-6 large-6"  id="row-1824597074">
+    </div>
+  </div>
+</section>
 
-	<div id="col-626058734" class="col small-12 large-12"  >
-				<div class="col-inner"  >
-			
-			
-	<div class="box has-hover   has-hover box-overlay dark box-text-middle" >
-
-		<div class="box-image" >
-						<div class="image-cover" style="padding-top:150%;">
-				<img loading="lazy" decoding="async" width="150" height="150" src="./assets/images/96-toshiba-e-studio-457-sm.jpg" class="attachment-large size-large" alt="" />				<div class="overlay" style="background-color:1"></div>							</div>
-					</div>
-
-		<div class="box-text text-center is-large" >
-			<div class="box-text-inner">
-				
-	<div id="text-3685172931" class="text capitalize">
-		
-<h3>Máy Photocopy</h3>
-			</div>
-	
-			</div>
-		</div>
-	</div>
-	
-		</div>
-					</div>
-
-	
-</div>
-<div class="row row-collapse"  id="row-1343050807">
-
-	<div id="col-508623765" class="col small-12 large-12"  >
-				<div class="col-inner"  >
-			
-			
-	<div class="box has-hover   has-hover box-overlay dark box-text-middle" >
-
-		<div class="box-image" >
-						<div class="image-cover" style="padding-top:150%;">
-				<img loading="lazy" decoding="async" width="400" height="580" src="./assets/images/99-may-in-nhan-ban-sieu-toc-sm.png" class="attachment-large size-large" alt="" />				<div class="overlay" style="background-color:1"></div>							</div>
-					</div>
-
-		<div class="box-text text-center is-large" >
-			<div class="box-text-inner">
-				
-	<div id="text-2558206203" class="text capitalize">
-		
-<h3>Máy In Siêu Tốc</h3>
-			</div>
-	
-			</div>
-		</div>
-	</div>
-	
-		</div>
-					</div>
-
-	
-</div>
-<div class="row row-collapse"  id="row-182968986">
-
-	<div id="col-1331534280" class="col small-12 large-12"  >
-				<div class="col-inner"  >
-			
-			
-	<div class="box has-hover   has-hover box-overlay dark box-text-middle" >
-
-		<div class="box-image" >
-						<div class="image-cover" style="padding-top:150%;">
-				<img loading="lazy" decoding="async" width="400" height="580" src="./assets/images/40-may-phoi-trang-dfc-120-sm.png" class="attachment-large size-large" alt="" />				<div class="overlay" style="background-color:1"></div>							</div>
-					</div>
-
-		<div class="box-text text-center is-large" >
-			<div class="box-text-inner">
-				
-	<div id="text-2973131891" class="text capitalize">
-		
-<h3>Thiết Bị Sau In</h3>
-			</div>
-	
-			</div>
-		</div>
-	</div>
-	
-		</div>
-					</div>
-
-	
-</div>
-     </div>
-
-     <div class="loading-spin dark large centered"></div>
-
-	
-<style>
-#slider-498180554 .flickity-slider > *, .category-slider .flickity-slider > * {
-  max-width: 60%!important;
-}
-@media (min-width:850px) {
-  #slider-498180554 .flickity-slider > *, .category-slider .flickity-slider > * {
-    max-width: 45%!important;
-  }
-}
-</style>
-</div>
-
-
-		</div>
-				
-<style>
-#col-666684848 > .col-inner {
-  padding: 0px 0px 0px 15px;
-}
-@media (min-width:550px) {
-  #col-666684848 > .col-inner {
-    padding: 0px 0px 0px 30px;
-  }
-}
-</style>
-	</div>
-
-	
-</div>
-		</div>
-
-		
-<style>
+<style id="huongson-cat-slider-css">
 #section_1457457926 {
-  padding-top: 80px;
-  padding-bottom: 80px;
-  background-color: rgb(255, 255, 255);
+  background: linear-gradient(135deg, #092716 0%, #1b6f3c 100%) !important;
+  padding: 45px 0 !important;
+  position: relative;
+  overflow: hidden;
+}
+.cat-card-item:hover .cat-card-img {
+  transform: scale(1.08);
+}
+.cat-nav-btn:hover {
+  background: #c8962e !important;
+  border-color: #c8962e !important;
 }
 </style>
-	</section>
+
+<script id="huongson-cat-slider-js">
+var catSlideIndex = 0;
+function updateCategorySlider() {
+  var slider = document.getElementById('categoryCardsSlider');
+  if (!slider) return;
+  var cardWidth = 290; // 270px width + 20px gap
+  var maxIndex = 2; // 4 cards total, 2 visible at once
+  if (catSlideIndex < 0) catSlideIndex = 0;
+  if (catSlideIndex > maxIndex) catSlideIndex = maxIndex;
+  slider.style.transform = 'translateX(-' + (catSlideIndex * cardWidth) + 'px)';
+}
+function prevCategorySlide() {
+  catSlideIndex--;
+  updateCategorySlider();
+}
+function nextCategorySlide() {
+  catSlideIndex++;
+  updateCategorySlider();
+}
+</script>
 	
 	<section class="section" id="section_1971437311">
 		<div class="bg section-bg fill bg-fill  bg-loaded" >
