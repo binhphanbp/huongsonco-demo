@@ -180,27 +180,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           <!-- Mobile Right Elements -->
           <div class="flex-col show-for-medium flex-right">
             <ul class="mobile-nav nav nav-right ">
-              <li class="header-search header-search-dropdown has-icon has-dropdown menu-item-has-children">
-		<a href="#" aria-label="Search" class="is-small"><i class="icon-search" ></i></a>
-		<ul class="nav-dropdown nav-dropdown-simple">
-	 	<li class="header-search-form search-form html relative has-icon">
-	<div class="header-search-form-wrapper">
-		<div class="searchform-wrapper ux-search-box relative form-flat is-normal"><form method="get" class="searchform" action="https://blog-tech.matbao.website/" role="search">
-		<div class="flex-row relative">
-			<div class="flex-col flex-grow">
-	   	   <input type="search" class="search-field mb-0" name="s" value="" id="s" placeholder="Tìm kiếm..." />
-			</div>
-			<div class="flex-col">
-				<button type="submit" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Nộp">
-					<i class="icon-search" ></i>				</button>
-			</div>
-		</div>
-    <div class="live-search-results text-left z-top"></div>
-</form>
-</div>	</div>
-</li>
-	</ul>
-</li>
+              <li class="header-search-icon has-icon"><a href="#" class="is-small" aria-label="Tìm kiếm" onclick="event.preventDefault();document.getElementById('header-search-dropdown').classList.toggle('is-open');document.getElementById('header-search-input').focus();"><i class="icon-search"></i></a></li>
 <li class="nav-icon has-icon">
   		<a href="#" data-open="#main-menu" data-pos="center" data-bg="main-menu-overlay" data-color="" class="is-small" aria-label="Menu" aria-controls="main-menu" aria-expanded="false">
 
