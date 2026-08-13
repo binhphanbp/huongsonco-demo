@@ -185,31 +185,40 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 
 <style id="huongson-header-nav-css">
-/* Clean Modern Single-Row White Header with 100% Reliable Sticky */
-header#header.header {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 9999 !important;
-  background-color: #ffffff !important;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+/* Clean Modern Single-Row White Header with Fixed Sticky Navigation */
+#header {
+  position: relative;
+  z-index: 999;
 }
 
 #masthead.header-main {
   background-color: #ffffff !important;
   border-bottom: 1px solid #eaeaea;
   min-height: 65px;
+  transition: box-shadow 0.2s ease;
 }
 
-/* Override Flatsome JS position fixed glitches */
-#header.stuck,
-.stuck #masthead,
-#masthead.stuck {
-  position: relative !important;
+/* Fixed Sticky State when Scrolled */
+#masthead.is-sticky {
+  position: fixed !important;
   top: 0 !important;
-  transform: none !important;
-  left: auto !important;
-  right: auto !important;
+  left: 0 !important;
+  right: 0 !important;
   width: 100% !important;
+  z-index: 99999 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+  animation: headerSlideDown 0.25s ease-out;
+}
+
+@keyframes headerSlideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+/* Disable Flatsome default competing pseudo-lines & JS overrides */
+.header-nav-main.nav-line-bottom > li > a:before,
+.header-nav-main.nav-line-bottom > li > a:after {
+  display: none !important;
 }
 
 .header-bg-color {
@@ -221,12 +230,6 @@ header#header.header {
 #logo img {
   max-height: 50px !important;
   padding: 4px 0 !important;
-}
-
-/* Disable Flatsome default competing pseudo-lines */
-.header-nav-main.nav-line-bottom > li > a:before,
-.header-nav-main.nav-line-bottom > li > a:after {
-  display: none !important;
 }
 
 /* Nav Menu Styling on White Bar */
@@ -2129,6 +2132,34 @@ document.addEventListener('keydown', function(e) {
     if (dd) dd.classList.remove('is-open');
   }
 });
+</script>
+<script id="huongson-sticky-header-js">
+(function() {
+  function handleStickyHeader() {
+    var masthead = document.getElementById('masthead');
+    var topBar = document.getElementById('header-top-bar');
+    if (!masthead) return;
+    
+    var threshold = topBar ? topBar.offsetHeight : 35;
+    if (window.pageYOffset > threshold) {
+      if (!masthead.classList.contains('is-sticky')) {
+        masthead.classList.add('is-sticky');
+      }
+    } else {
+      if (masthead.classList.contains('is-sticky')) {
+        masthead.classList.remove('is-sticky');
+      }
+    }
+  }
+  
+  window.addEventListener('scroll', handleStickyHeader, { passive: true });
+  window.addEventListener('resize', handleStickyHeader);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', handleStickyHeader);
+  } else {
+    handleStickyHeader();
+  }
+})();
 </script>
 </body>
 </html>
