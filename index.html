@@ -558,35 +558,116 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div id="content" role="main" class="content-area">
 
 <!-- HERO SECTION -->
-<section class="section hero-section-huongson" id="section_237830800">
-  <div class="container hero-container" style="max-width:1240px; margin:0 auto; padding:40px 15px;">
-    <div class="row align-middle" style="display:flex; flex-wrap:wrap; align-items:center; gap:30px;">
+<!-- HERO SECTION PREMIUM -->
+<section class="hero-section-enterprise" id="section_237830800">
+  <div class="hero-bg-overlay"></div>
+  <div class="container hero-container">
+    <div class="hero-grid">
       
-      <!-- Left Info -->
-      <div class="col small-12 medium-6 large-6" style="flex:1; min-width:300px;">
-        <div class="hero-badge" style="display:inline-block; background:#c8962e; color:#ffffff; font-size:12px; font-weight:700; padding:6px 14px; border-radius:20px; text-transform:uppercase; letter-spacing:0.8px; margin-bottom:18px; box-shadow:0 4px 12px rgba(200,150,46,0.3);">
-          ★ ĐẠI LÝ ỦY QUYỀN CHÍNH THỨC DUPLO & TOSHIBA TẠI VIỆT NAM
+      <!-- Left Column: Content & Value Proposition -->
+      <div class="hero-left-content">
+        
+        <div class="hero-dealer-badge">
+          <span class="badge-icon">★</span>
+          <span>ĐẠI LÝ ỦY QUYỀN CHÍNH THỨC <strong>TOSHIBA & DUPLO</strong> TẠI VIỆT NAM</span>
         </div>
-        <h1 style="color:#ffffff; font-size:32px; font-weight:800; line-height:1.25; margin-bottom:16px; letter-spacing:-0.5px;">
-          GIẢI PHÁP MÁY PHOTOCOPY & IN SIÊU TỐC HÀNG ĐẦU
+
+        <h1 class="hero-main-title">
+          GIẢI PHÁP MÁY PHOTOCOPY & IN SIÊU TỐC <span class="text-gold-gradient">CHUYÊN NGHIỆP</span>
         </h1>
-        <p style="color:rgba(255,255,255,0.85); font-size:15px; line-height:1.65; margin-bottom:28px; max-width:540px;">
-          Công ty TNHH TM&DV Hương Sơn chuyên cung cấp, cho thuê & bảo trì các dòng máy photocopy Toshiba, máy in nhân bản siêu tốc Duplo, Ricoh chính hãng với dịch vụ bảo hành tận nơi chuyên nghiệp.
+
+        <p class="hero-description">
+          Công ty TNHH TM&DV Hương Sơn cung cấp, cho thuê và bảo trì hệ thống máy photocopy Toshiba, máy in nhân bản siêu tốc Duplo & Ricoh chính hãng cho các trường học, ngân hàng và doanh nghiệp trên toàn quốc.
         </p>
-        <div class="hero-actions" style="display:flex; gap:14px; flex-wrap:wrap;">
-          <a href="./san-pham/" class="button primary" style="background:#c8962e; color:#ffffff !important; font-size:14px; font-weight:700; padding:12px 28px; border-radius:6px; text-decoration:none; transition:all 0.2s ease; border:none; box-shadow:0 4px 15px rgba(0,0,0,0.2);">
-            XEM SẢN PHẨM ›
+
+        <div class="hero-action-buttons">
+          <a href="./san-pham/" class="hero-btn hero-btn-gold">
+            <span>KHÁM PHÁ SẢN PHẨM</span>
+            <i class="icon-angle-right"></i>
           </a>
-          <a href="./lien-he/" class="button secondary" style="background:transparent; color:#ffffff !important; font-size:14px; font-weight:700; padding:12px 28px; border-radius:6px; text-decoration:none; transition:all 0.2s ease; border:2px solid rgba(255,255,255,0.6);">
-            LIÊN HỆ TƯ VẤN
+          <a href="./lien-he/" class="hero-btn hero-btn-outline">
+            <i class="icon-phone"></i>
+            <span>LIÊN HỆ BÁO GIÁ</span>
           </a>
         </div>
+
+        <!-- Trust Stats Bar -->
+        <div class="hero-trust-stats">
+          <div class="stat-item">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Năm Uy Tín</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">1,000+</span>
+            <span class="stat-label">Máy Đã Cung Cấp</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Hỗ Trợ Kỹ Thuật</span>
+          </div>
+        </div>
+
       </div>
-      
-      <!-- Right Image Card -->
-      <div class="col small-12 medium-6 large-6" style="flex:1; min-width:300px; text-align:center;">
-        <div class="hero-image-wrapper" style="position:relative; background:rgba(255,255,255,0.06); padding:20px; border-radius:16px; border:1px solid rgba(255,255,255,0.12); backdrop-filter:blur(10px); box-shadow:0 15px 35px rgba(0,0,0,0.25);">
-          <img src="./assets/images/2__home-hero--57.png" alt="Hương Sơn Duplo Toshiba" style="max-width:100%; height:auto; border-radius:12px; object-fit:cover;" />
+
+      <!-- Right Column: Interactive Product Showcase -->
+      <div class="hero-right-showcase">
+        <div class="showcase-card">
+          
+          <!-- Category Tabs -->
+          <div class="showcase-tabs">
+            <button class="tab-btn active" onclick="switchHeroShowcase(0)">Máy Photocopy</button>
+            <button class="tab-btn" onclick="switchHeroShowcase(1)">In Siêu Tốc</button>
+            <button class="tab-btn" onclick="switchHeroShowcase(2)">Thiết Bị Sau In</button>
+          </div>
+
+          <!-- Product Item 0: Toshiba -->
+          <div class="showcase-item active" id="hero-item-0">
+            <div class="showcase-img-container">
+              <img src="./assets/images/products/m-y-photocopy-toshiba-e-studio-3028a.jpg" alt="Toshiba e-Studio 3028A" />
+            </div>
+            <div class="showcase-info">
+              <span class="showcase-tag">TOSHIBA JAPAN</span>
+              <h3 class="showcase-title">Toshiba e-STUDIO 3028A</h3>
+              <p class="showcase-desc">Tốc độ 30 trang/phút • Copy/In/Scan màu A3 • Màn hình cảm ứng 10.1 inch</p>
+            </div>
+          </div>
+
+          <!-- Product Item 1: Duplo DP-X550 -->
+          <div class="showcase-item" id="hero-item-1" style="display:none;">
+            <div class="showcase-img-container">
+              <img src="./assets/images/products/m-y-nh-n-b-n-si-u-t-c-duplo-dp-x550.jpg" alt="Duplo DP-X550" />
+            </div>
+            <div class="showcase-info">
+              <span class="showcase-tag">DUPLO JAPAN</span>
+              <h3 class="showcase-title">Máy Nhân Bản Siêu Tốc DUPLO DP-X550</h3>
+              <p class="showcase-desc">Tốc độ 155 bản/phút • Khổ A3 tiêu chuẩn • Tiết kiệm 80% chi phí in đề thi</p>
+            </div>
+          </div>
+
+          <!-- Product Item 2: Duplo DFC-122 -->
+          <div class="showcase-item" id="hero-item-2" style="display:none;">
+            <div class="showcase-img-container">
+              <img src="./assets/images/products/m-y-ph-i-trang-s-p-x-p-t-i-li-u-duplo-dfc-122.jpg" alt="Duplo DFC-122" />
+            </div>
+            <div class="showcase-info">
+              <span class="showcase-tag">DUPLO EQUIPMENT</span>
+              <h3 class="showcase-title">Máy Phối Trang Duplo DFC-122</h3>
+              <p class="showcase-desc">12 Khay tự động • Tốc độ 4.200 bộ/giờ • Xếp chồng & dập ghim tự động</p>
+            </div>
+          </div>
+
+          <!-- Floating Badges -->
+          <div class="floating-badge badge-top-right">
+            <span class="icon-check">✓</span>
+            <span>Cam kết 100% Chính Hãng</span>
+          </div>
+          <div class="floating-badge badge-bottom-left">
+            <span class="icon-shield">🛡️</span>
+            <span>Bảo hành tận nơi 24 tháng</span>
+          </div>
+
         </div>
       </div>
 
@@ -594,29 +675,312 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   </div>
 </section>
 
-<style>
-#section_237830800 {
-  background: linear-gradient(135deg, #092716 0%, #1b6f3c 60%, #114a27 100%) !important;
-  padding: 30px 0 !important;
-  margin-bottom: 30px !important;
+<style id="huongson-hero-enterprise-css">
+/* Enterprise Hero Section Styling */
+.hero-section-enterprise {
   position: relative;
+  background: linear-gradient(135deg, #071f12 0%, #114a27 50%, #1b6f3c 100%);
+  padding: 55px 0 65px 0;
   overflow: hidden;
+  margin-bottom: 30px;
 }
-#section_237830800::before {
+
+.hero-section-enterprise::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('./assets/images/White-Dot-Pattern.svg');
-  opacity: 0.08;
+  top: -50%;
+  right: -20%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(200, 150, 46, 0.15) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
   pointer-events: none;
 }
-@media (max-width: 768px) {
-  .hero-section-huongson h1 { font-size: 24px !important; }
+
+.hero-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: url('./assets/images/White-Dot-Pattern.svg');
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.hero-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 45px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
+
+/* Left Content */
+.hero-dealer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(200, 150, 46, 0.18);
+  border: 1px solid rgba(200, 150, 46, 0.4);
+  color: #fce39e;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(4px);
+}
+.hero-dealer-badge .badge-icon {
+  color: #f7d070;
+  font-size: 13px;
+}
+
+.hero-main-title {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+}
+
+.text-gold-gradient {
+  background: linear-gradient(90deg, #ffe28a 0%, #c8962e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 15px;
+  line-height: 1.65;
+  margin-bottom: 30px;
+  max-width: 580px;
+}
+
+.hero-action-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.hero-btn-gold {
+  background: linear-gradient(135deg, #d49f33 0%, #b08225 100%);
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(200, 150, 46, 0.35);
+}
+.hero-btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(200, 150, 46, 0.5);
+}
+
+.hero-btn-outline {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+}
+.hero-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Trust Stats */
+.hero-trust-stats {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+.stat-number {
+  font-size: 22px;
+  font-weight: 800;
+  color: #f7d070;
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-top: 3px;
+}
+.stat-divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Right Showcase Card */
+.showcase-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.showcase-tabs {
+  display: flex;
+  gap: 6px;
+  background: #f0f4f1;
+  padding: 4px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.showcase-tabs .tab-btn {
+  flex: 1;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  color: #555;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 7px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.showcase-tabs .tab-btn.active {
+  background: #1b6f3c;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(27, 111, 60, 0.3);
+}
+
+.showcase-img-container {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fafafa;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 15px;
+  border: 1px solid #f0f0f0;
+}
+.showcase-img-container img {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.showcase-card:hover .showcase-img-container img {
+  transform: scale(1.05);
+}
+
+.showcase-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #c8962e;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+.showcase-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1b6f3c;
+  margin: 4px 0 6px 0;
+}
+.showcase-desc {
+  font-size: 12.5px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Floating Badges */
+.floating-badge {
+  position: absolute;
+  background: #ffffff;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #222;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #eef2f0;
+  z-index: 5;
+}
+.badge-top-right {
+  top: -15px;
+  right: -15px;
+  border-left: 3px solid #27ae60;
+}
+.badge-top-right .icon-check {
+  color: #27ae60;
+  font-weight: bold;
+}
+.badge-bottom-left {
+  bottom: -15px;
+  left: -15px;
+  border-left: 3px solid #c8962e;
+}
+
+@media (max-width: 550px) {
+  .hero-main-title { font-size: 24px; }
+  .hero-trust-stats { flex-wrap: wrap; }
+  .floating-badge { display: none; }
 }
 </style>
+
+<script id="huongson-hero-js">
+function switchHeroShowcase(idx) {
+  var btns = document.querySelectorAll('.showcase-tabs .tab-btn');
+  btns.forEach(function(b, i) {
+    if (i === idx) b.classList.add('active');
+    else b.classList.remove('active');
+  });
+
+  for (var i = 0; i < 3; i++) {
+    var item = document.getElementById('hero-item-' + i);
+    if (item) {
+      if (i === idx) {
+        item.style.display = 'block';
+        item.classList.add('active');
+      } else {
+        item.style.display = 'none';
+        item.classList.remove('active');
+      }
+    }
+  }
+}
+</script>
 
 <div class="container section-title-container" style="margin-top:40px;margin-bottom:0px;"><h2 class="section-title section-title-normal"><b></b><span class="section-title-main" style="font-size:110%;">CÁC BÀI VIẾT mới</span><b></b><a href="./tin-tuc/" target >Xem thêm các bài viết nổi bật<i class="icon-angle-right" ></i></a></h2></div>
 		</div>
