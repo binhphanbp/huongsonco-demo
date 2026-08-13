@@ -355,28 +355,31 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 
 <style id="huongson-product-css">
-/* Modern Product Card Styling */
+/* Equal Height Modern Product Grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   gap: 24px;
+  align-items: stretch;
   margin-top: 25px;
 }
 
 .product-card {
   background: #ffffff;
-  border: 1px solid #eef2f5;
-  border-radius: 10px;
+  border: 1px solid #e5e9ec;
+  border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  justify-content: space-between;
+  height: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
   position: relative;
 }
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 28px rgba(27, 111, 60, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(27, 111, 60, 0.15);
   border-color: #1b6f3c;
 }
 
@@ -384,36 +387,38 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   position: absolute;
   top: 12px;
   left: 12px;
-  background: #1b6f3c;
+  background: rgba(27, 111, 60, 0.9);
   color: #ffffff;
-  font-size: 11px;
+  font-size: 10.5px;
   font-weight: 700;
   padding: 4px 10px;
   border-radius: 20px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   z-index: 2;
+  backdrop-filter: blur(4px);
 }
 
 .product-card .card-image {
   position: relative;
   width: 100%;
-  padding-top: 75%;
-  background: #fafafa;
-  overflow: hidden;
+  height: 220px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-bottom: 1px solid #f2f4f6;
+  text-decoration: none;
 }
 .product-card .card-image img {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 85%;
-  max-height: 85%;
+  max-width: 100%;
+  max-height: 180px;
   object-fit: contain;
   transition: transform 0.3s ease;
 }
 .product-card:hover .card-image img {
-  transform: translate(-50%, -50%) scale(1.06);
+  transform: scale(1.06);
 }
 
 .product-card .card-body {
@@ -424,12 +429,12 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 }
 
 .product-card .card-category {
-  font-size: 11.5px;
+  font-size: 11px;
   color: #c8962e;
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 6px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
 }
 
 .product-card .card-title {
@@ -447,7 +452,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .product-card .card-title a {
   color: #222222;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 .product-card .card-title a:hover {
   color: #1b6f3c;
@@ -455,17 +460,22 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 .product-card .card-specs {
   font-size: 12.5px;
-  color: #666666;
+  color: #555555;
   margin-bottom: 15px;
-  line-height: 1.5;
+  line-height: 1.55;
   flex: 1;
   padding: 0;
+  max-height: 70px;
+  overflow: hidden;
 }
 .product-card .card-specs li {
   list-style: none;
   position: relative;
   padding-left: 14px;
   margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .product-card .card-specs li::before {
   content: "•";
@@ -476,15 +486,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 }
 
 .product-card .card-footer {
+  margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 12px;
-  border-top: 1px dashed #e8e8e8;
+  padding-top: 14px;
+  border-top: 1px dashed #eaeaea;
 }
 
 .product-card .card-price {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
   color: #c71c1b;
 }
@@ -494,26 +505,26 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #ffffff !important;
   font-size: 12px;
   font-weight: 600;
-  padding: 7px 14px;
+  padding: 7px 15px;
   border-radius: 6px;
   text-decoration: none;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
 }
 .product-card .card-btn:hover {
   background: #c8962e;
 }
 
-/* Category Filter Tabs */
+/* Filter Bar */
 .product-filter-bar {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
   margin: 20px 0 30px 0;
   border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 12px;
+  padding-bottom: 14px;
 }
 .product-filter-btn {
-  padding: 8px 20px;
+  padding: 9px 22px;
   border-radius: 20px;
   background: #f4f7f5;
   color: #444;
@@ -527,10 +538,10 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   background: #1b6f3c;
   color: #fff !important;
   border-color: #1b6f3c;
-  box-shadow: 0 4px 12px rgba(27, 111, 60, 0.2);
+  box-shadow: 0 4px 12px rgba(27, 111, 60, 0.25);
 }
 
-/* Product Detail Page Layout */
+/* Detail Page Layout */
 .product-detail-container {
   max-width: 1240px;
   margin: 30px auto 50px auto;
@@ -538,7 +549,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 }
 .product-detail-layout {
   display: grid;
-  grid-template-columns: 420px 1fr;
+  grid-template-columns: 440px 1fr;
   gap: 40px;
   background: #ffffff;
   padding: 35px;
@@ -552,16 +563,16 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 .product-detail-gallery {
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  padding: 20px;
+  padding: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #fafafa;
-  min-height: 360px;
+  background: #ffffff;
+  min-height: 380px;
 }
 .product-detail-gallery img {
   max-width: 100%;
-  max-height: 340px;
+  max-height: 350px;
   object-fit: contain;
 }
 .product-detail-info h1 {
@@ -592,7 +603,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   color: #c71c1b;
   margin-bottom: 20px;
   background: #fff8f8;
-  padding: 10px 16px;
+  padding: 10px 18px;
   border-radius: 6px;
   display: inline-block;
   border: 1px dashed #f5c2c2;
@@ -740,7 +751,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
             <ul class="header-nav header-nav-main nav nav-right  nav-line-bottom nav-size-medium nav-spacing-xlarge">
 
 <li class="menu-item has-sub">
-  <a href="../san-pham/#may-photocopy" class="nav-top-link">
+  <a href="../san-pham/" class="nav-top-link">
     DANH MỤC SẢN PHẨM <i class="icon-angle-down"></i>
   </a>
   <ul class="sub-menu level-1">
@@ -859,13 +870,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-photocopy">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-photocopy-toshiba-e-studio-3028a/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Photocopy Toshiba e-Studio 3028A" loading="lazy" />
+    <img src="../assets/images/products/m-y-photocopy-toshiba-e-studio-3028a.jpg" alt="Máy Photocopy Toshiba e-Studio 3028A" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">MÁY PHOTOCOPY</div>
     <h3 class="card-title"><a href="../san-pham/m-y-photocopy-toshiba-e-studio-3028a/">Máy Photocopy Toshiba e-Studio 3028A</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Tốc độ và tính năng mạnh mẽ</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -877,13 +888,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-photocopy">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-photocopy-toshiba-e-studio-457/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Photocopy Toshiba e-Studio 457" loading="lazy" />
+    <img src="../assets/images/products/m-y-photocopy-toshiba-e-studio-457.jpg" alt="Máy Photocopy Toshiba e-Studio 457" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">MÁY PHOTOCOPY</div>
     <h3 class="card-title"><a href="../san-pham/m-y-photocopy-toshiba-e-studio-457/">Máy Photocopy Toshiba e-Studio 457</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Tốc độ copy: 45 tờ/phút</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -895,13 +906,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-photocopy">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-photocopy-toshiba-e-studio-2528a/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Photocopy Toshiba e-Studio 2528A" loading="lazy" />
+    <img src="../assets/images/products/m-y-photocopy-toshiba-e-studio-2528a.jpg" alt="Máy Photocopy Toshiba e-Studio 2528A" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">MÁY PHOTOCOPY</div>
     <h3 class="card-title"><a href="../san-pham/m-y-photocopy-toshiba-e-studio-2528a/">Máy Photocopy Toshiba e-Studio 2528A</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Tốc độ và tính năng mạnh mẽ</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -913,13 +924,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-photocopy">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-photocopy-toshiba-e-studio-4528a/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Photocopy Toshiba e-Studio 4528A" loading="lazy" />
+    <img src="../assets/images/products/m-y-photocopy-toshiba-e-studio-4528a.jpg" alt="Máy Photocopy Toshiba e-Studio 4528A" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">MÁY PHOTOCOPY</div>
     <h3 class="card-title"><a href="../san-pham/m-y-photocopy-toshiba-e-studio-4528a/">Máy Photocopy Toshiba e-Studio 4528A</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Tốc độ và tính năng mạnh mẽ</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -931,13 +942,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-photocopy">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-photocopy-konica-minolta-bizhub-360i-300i/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Photocopy Konica Minolta Bizhub 360i/300i" loading="lazy" />
+    <img src="../assets/images/products/m-y-photocopy-konica-minolta-bizhub-360i-300i.jpg" alt="Máy Photocopy Konica Minolta Bizhub 360i/300i" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">PHOTOCOPY KONICAMINOLTA</div>
     <h3 class="card-title"><a href="../san-pham/m-y-photocopy-konica-minolta-bizhub-360i-300i/">Máy Photocopy Konica Minolta Bizhub 360i/300i</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Dòng máy photocopy đơn sắc&nbsp; đa chức năng bizhub i-Series 360i/300i có bộ máy vận hành mạnh mẽ, bộ xử lý trung tâm lõi tứ với bộ nhớ trong 8GB tiêu chuẩn và ổ cứng SSD 256GB, hỗ trợ phản hồi lệnh nhanh chóng với hiệu suất hoạt động cao. Với sự kết hợp bổ sung giữa tính năng tương thích tối đa với nhiều loại giấy, bộ phận nạp tài liệu scan 2 mặt cùng lúc với tốc độ nhanh, điều chỉnh độ lệch kỹ thuật số, và các khay nạp giấy dung tích lớn, kết hợp chuyên nghiệp cùng với chức năng xác thực và khả năng hỗ trợ dịch vụ linh hoạt.</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -949,13 +960,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-photocopy">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-photocopy-konica-minolta-bizhub-650i-550i/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Photocopy Konica Minolta Bizhub 650i/550i" loading="lazy" />
+    <img src="../assets/images/products/m-y-photocopy-konica-minolta-bizhub-650i-550i.jpg" alt="Máy Photocopy Konica Minolta Bizhub 650i/550i" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">PHOTOCOPY KONICAMINOLTA</div>
     <h3 class="card-title"><a href="../san-pham/m-y-photocopy-konica-minolta-bizhub-650i-550i/">Máy Photocopy Konica Minolta Bizhub 650i/550i</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Dòng máy photocopy đơn sắc đa chức năng bizhub i-Series 550i/450i có bộ máy vận hành mạnh mẽ, bộ xử lý trung tâm lõi tứ với bộ nhớ trong 8GB tiêu chuẩn và ổ cứng SSD 256GB, hỗ trợ phản hồi lệnh nhanh chóng với hiệu suất hoạt động cao. Với sự kết hợp bổ sung giữa tính năng tương thích tối đa với nhiều loại giấy, bộ phận nạp tài liệu scan 2 mặt cùng lúc với tốc độ nhanh cũng như các tùy chọn thành phẩm, điều chỉnh độ lệch kỹ thuật số, và các khay nạp giấy dung tích lớn, kết hợp chuyên nghiệp cùng với chức năng xác thực và khả năng hỗ trợ dịch vụ linh hoạt.</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -967,13 +978,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-in-sieu-toc">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-nh-n-b-n-si-u-t-c-duplo-dp-x550/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Nhân Bản Siêu Tốc DUPLO DP-X550" loading="lazy" />
+    <img src="../assets/images/products/m-y-nh-n-b-n-si-u-t-c-duplo-dp-x550.jpg" alt="Máy Nhân Bản Siêu Tốc DUPLO DP-X550" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">MÁY IN NHÂN BẢN SIÊU TỐC DUPLO</div>
     <h3 class="card-title"><a href="../san-pham/m-y-nh-n-b-n-si-u-t-c-duplo-dp-x550/">Máy Nhân Bản Siêu Tốc DUPLO DP-X550</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Duplo DP-X550 có tốc độ lên đến 155 bản/phút,với độ phân giải cao tạo độ sắc nét cho khu vực hình ảnh A3. Màn hình màu cảm ứng lớn, sắc nét làm cho thao tác thân thiện hơn,&nbsp;các chương trình cài đặt đơn giản và dễ dàng sử dụng, với thiết kế hoàn toàn mới.&nbsp;</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -985,13 +996,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-in-sieu-toc">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-nh-n-b-n-si-u-t-c-duplo-dp-x650/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Nhân Bản Siêu Tốc DUPLO DP-X650" loading="lazy" />
+    <img src="../assets/images/products/m-y-nh-n-b-n-si-u-t-c-duplo-dp-x650.jpg" alt="Máy Nhân Bản Siêu Tốc DUPLO DP-X650" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">MÁY IN NHÂN BẢN SIÊU TỐC DUPLO</div>
     <h3 class="card-title"><a href="../san-pham/m-y-nh-n-b-n-si-u-t-c-duplo-dp-x650/">Máy Nhân Bản Siêu Tốc DUPLO DP-X650</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>TỐC ĐỘ IN NHANH NHẤT ĐẾN 200 BẢN PHÚT.</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1003,13 +1014,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-in-sieu-toc">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-in-si-u-t-c-ricoh-dx-2430/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy In Siêu Tốc Ricoh DX 2430" loading="lazy" />
+    <img src="../assets/images/products/m-y-in-si-u-t-c-ricoh-dx-2430.jpg" alt="Máy In Siêu Tốc Ricoh DX 2430" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">MÁY IN SIÊU TỐC RICOH</div>
     <h3 class="card-title"><a href="../san-pham/m-y-in-si-u-t-c-ricoh-dx-2430/">Máy In Siêu Tốc Ricoh DX 2430</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Tốc độ copy (bản/phút)</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1021,13 +1032,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-in-sieu-toc">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-in-si-u-t-c-ricoh-dx-3443/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy In Siêu Tốc Ricoh DX 3443" loading="lazy" />
+    <img src="../assets/images/products/m-y-in-si-u-t-c-ricoh-dx-3443.jpg" alt="Máy In Siêu Tốc Ricoh DX 3443" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">MÁY IN SIÊU TỐC RICOH</div>
     <h3 class="card-title"><a href="../san-pham/m-y-in-si-u-t-c-ricoh-dx-3443/">Máy In Siêu Tốc Ricoh DX 3443</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Tốc độ copy (bản/phút)</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1039,13 +1050,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="may-in-sieu-toc">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-in-laser-a-n-ng-hp-laserjet-pro-mfp-4103fdw/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy In Laser Đa Năng HP LaserJet Pro MFP 4103fdw" loading="lazy" />
+    <img src="../assets/images/products/m-y-in-laser-a-n-ng-hp-laserjet-pro-mfp-4103fdw.jpg" alt="Máy In Laser Đa Năng HP LaserJet Pro MFP 4103fdw" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">MÁY IN LASER RICOH</div>
     <h3 class="card-title"><a href="../san-pham/m-y-in-laser-a-n-ng-hp-laserjet-pro-mfp-4103fdw/">Máy In Laser Đa Năng HP LaserJet Pro MFP 4103fdw</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Máy in HP có&nbsp;độ phân giải 1200 x 1200 dpi&nbsp;in được trên nhiều kích thước giấy khác nhau giúp bạn cho ra hình ảnh hay văn bản sắc nét hơn, phục vụ tốt cho những công việc văn phòng.</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1057,13 +1068,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="thiet-bi-sau-in">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-ph-i-trang-s-p-x-p-t-i-li-u-duplo-dfc-122/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Phối Trang Sắp Xếp Tài Liệu Duplo DFC-122" loading="lazy" />
+    <img src="../assets/images/products/m-y-ph-i-trang-s-p-x-p-t-i-li-u-duplo-dfc-122.jpg" alt="Máy Phối Trang Sắp Xếp Tài Liệu Duplo DFC-122" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">DUPLO - THIẾT BỊ SAU IN</div>
     <h3 class="card-title"><a href="../san-pham/m-y-ph-i-trang-s-p-x-p-t-i-li-u-duplo-dfc-122/">Máy Phối Trang Sắp Xếp Tài Liệu Duplo DFC-122</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Máy phối trang&nbsp;Duplo DFC-122&nbsp;là sự đột phá mới về kiểu dáng nhỏ gọn, vận hành ổn định, tốc độ nhanh, tiện lợi và rất dễ sử dụng, giúp tiết kiệm thời gian và chi phí nhân công.&nbsp;không bị tình trạng kẹt giấy, lên giấy đôi hay phối sót giấy. Đặc biệt, tự động báo ngừng khi có sự cố. DFC-122&nbsp;hoạt động đơn lẻ hoặc kết nối với&nbsp;máy dập ghim DFC - SII&nbsp;để vừa phối trang và dập ghim hoặc&nbsp;máy đóng gấp sách DBM-150, giải pháp tối ưu trong công đoạn làm sách</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1075,13 +1086,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="thiet-bi-sau-in">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-ph-i-trang-s-p-x-p-t-i-li-u-duplo-dfc-102/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Phối Trang Sắp Xếp Tài Liệu Duplo DFC-102" loading="lazy" />
+    <img src="../assets/images/products/m-y-ph-i-trang-s-p-x-p-t-i-li-u-duplo-dfc-102.jpg" alt="Máy Phối Trang Sắp Xếp Tài Liệu Duplo DFC-102" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">DUPLO - THIẾT BỊ SAU IN</div>
     <h3 class="card-title"><a href="../san-pham/m-y-ph-i-trang-s-p-x-p-t-i-li-u-duplo-dfc-102/">Máy Phối Trang Sắp Xếp Tài Liệu Duplo DFC-102</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>10 khay giấy</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1093,13 +1104,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="thiet-bi-sau-in">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-gi-p-ghim-duplo-dfc-sii/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Giáp Ghim Duplo DFC-SII" loading="lazy" />
+    <img src="../assets/images/products/m-y-gi-p-ghim-duplo-dfc-sii.jpg" alt="Máy Giáp Ghim Duplo DFC-SII" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">DUPLO - THIẾT BỊ SAU IN</div>
     <h3 class="card-title"><a href="../san-pham/m-y-gi-p-ghim-duplo-dfc-sii/">Máy Giáp Ghim Duplo DFC-SII</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Máy đóng ghim tự động&nbsp;DUPLO DFC SII&nbsp;là sự đột phá&nbsp;mới về công nghệ đóng và dập gáy sách.&nbsp;Vận hành ổn định, nhanh chóng và tiện lợi, tiết kiệm diện tích và&nbsp;đặc biệt tự động hóa khi kết hợp cùng các loại Máy phối trang DUPLO DFC-101 và DFC-120.&nbsp;Tốc độ đáng kinh ngạc, lên đến 2.100 tập/giờ.&nbsp;Tự động ngừng khi máy đầy</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1111,13 +1122,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="van-phong-pham">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-c-in-fansipan-tonner-black-premium/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Mực In Fansipan Tonner Black Premium" loading="lazy" />
+    <img src="../assets/images/products/m-c-in-fansipan-tonner-black-premium.jpg" alt="Mực In Fansipan Tonner Black Premium" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">VẬT TƯ & VĂN PHÒNG PHẨM</div>
     <h3 class="card-title"><a href="../san-pham/m-c-in-fansipan-tonner-black-premium/">Mực In Fansipan Tonner Black Premium</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan Tonner Black</li><li>Mực Fansipan</li><li>Mực Fansipan</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1129,13 +1140,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="van-phong-pham">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-c-toshiba-2508a-3008a-3508a-4508a/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Mực Toshiba 2508A / 3008A / 3508A / 4508A" loading="lazy" />
+    <img src="../assets/images/products/m-c-toshiba-2508a-3008a-3508a-4508a.jpg" alt="Mực Toshiba 2508A / 3008A / 3508A / 4508A" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">VẬT TƯ & VĂN PHÒNG PHẨM</div>
     <h3 class="card-title"><a href="../san-pham/m-c-toshiba-2508a-3008a-3508a-4508a/">Mực Toshiba 2508A / 3008A / 3508A / 4508A</a></h3>
     <ul class="card-specs">
-      <li>Mực Toshiba 2508A/3008A/3508A/4508A/500</li><li>Mực Fansipan</li><li>Mực Fansipan</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1147,13 +1158,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="van-phong-pham">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-c-master-d-ng-cho-m-y-nh-n-b-n-duplo/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Mực & Master Dùng Cho Máy Nhân Bản Duplo" loading="lazy" />
+    <img src="../assets/images/products/m-c-master-d-ng-cho-m-y-nh-n-b-n-duplo.jpg" alt="Mực & Master Dùng Cho Máy Nhân Bản Duplo" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">VẬT TƯ & VĂN PHÒNG PHẨM</div>
     <h3 class="card-title"><a href="../san-pham/m-c-master-d-ng-cho-m-y-nh-n-b-n-duplo/">Mực & Master Dùng Cho Máy Nhân Bản Duplo</a></h3>
     <ul class="card-specs">
-      <li>Mực Master dùng cho máy nhân bản DUPLO</li><li>Mực Fansipan</li><li>Mực Fansipan</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1165,13 +1176,13 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="product-card" data-category="van-phong-pham">
   <span class="card-badge">CHÍNH HÃNG</span>
   <a href="../san-pham/m-y-m-ti-n-xinda-bc28f/" class="card-image">
-    <img src="http://huongsonco.com.vn/images/products/107-may-in-nhan-ban-sieu-toc-duplo-dp-x550-sm.jpg" alt="Máy Đếm Tiền Xinda BC28F" loading="lazy" />
+    <img src="../assets/images/products/m-y-m-ti-n-xinda-bc28f.jpg" alt="Máy Đếm Tiền Xinda BC28F" loading="lazy" />
   </a>
   <div class="card-body">
     <div class="card-category">THIẾT BỊ VĂN PHÒNG PHẨM</div>
     <h3 class="card-title"><a href="../san-pham/m-y-m-ti-n-xinda-bc28f/">Máy Đếm Tiền Xinda BC28F</a></h3>
     <ul class="card-specs">
-      <li>Mực Fansipan</li><li>Mực Fansipan</li><li>Trọng lượng: 8kg</li>
+      <li>Chính hãng phân phối</li><li>Bảo hành 12-24 tháng</li><li>Hỗ trợ kỹ thuật 24/7</li>
     </ul>
     <div class="card-footer">
       <span class="card-price">Giá: Liên hệ</span>
@@ -1199,7 +1210,6 @@ function filterCategory(e, cat) {
   });
 }
 
-// Handle URL Hash Filter
 window.addEventListener('DOMContentLoaded', function() {
   var hash = window.location.hash.replace('#', '');
   if (hash) {
@@ -1629,7 +1639,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		
 					<ul class="nav nav-sidebar nav-vertical nav-uppercase nav-anim" data-tab="1">
-<li class="menu-item"><a href="../san-pham/">Sản Phẩm</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom active current"><a href="../">Trang Chủ</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../gioi-thieu/">Giới Thiệu</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../san-pham/#may-photocopy">Máy Photocopy</a></li>
