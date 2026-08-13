@@ -44,7 +44,7 @@
 .page-title .title-content .title-breadcrumbs {
   padding: 0;
   white-space: nowrap;
-  color: #818284;
+  color: #555555;
 }
 .page-title .title-content .title-breadcrumbs .last {
   font-weight: 400;
@@ -302,7 +302,7 @@ body .capitalize {
   box-shadow: rgba(40, 0, 47, 0.12) 0px 0px 20px 0px;
 }
 .blog-overflow-right .post-item .box .box-text {
-  background: transparent linear-gradient(180deg, rgba(54, 5, 104, 0) 0%, #360568 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(180deg, rgba(54, 5, 104, 0) 0%, #1b6f3c 100%) 0% 0% no-repeat padding-box;
 }
 .blog-overflow-right .post-item .box .box-text .box-text-inner {
   display: flex;
