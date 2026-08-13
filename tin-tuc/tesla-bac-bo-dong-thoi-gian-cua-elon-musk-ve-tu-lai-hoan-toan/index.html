@@ -191,6 +191,139 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 }
 </style>
 
+
+<style id="huongson-header-nav-css">
+/* Huong Son Main Navigation Bar Style */
+#header-nav-bar {
+  background-color: #1b6f3c;
+  width: 100%;
+  position: relative;
+  z-index: 995;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+#header-nav-bar .main-nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+#header-nav-bar .main-nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#header-nav-bar .main-nav-menu > li {
+  position: relative;
+  margin: 0;
+}
+#header-nav-bar .main-nav-menu > li > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 13.5px;
+  text-transform: uppercase;
+  padding: 12px 18px;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+  letter-spacing: 0.3px;
+  line-height: 1.4;
+}
+#header-nav-bar .main-nav-menu > li:hover > a,
+#header-nav-bar .main-nav-menu > li.active > a {
+  background-color: #14552d;
+  color: #ffda73 !important;
+}
+
+/* Arrow icons styling */
+#header-nav-bar .arrow-down::after {
+  content: " ▾";
+  font-size: 11px;
+  margin-left: 2px;
+}
+#header-nav-bar .arrow-right::after {
+  content: " ›";
+  font-size: 14px;
+  font-weight: 700;
+  margin-left: auto;
+}
+
+/* Level 1 Submenu Dropdown */
+#header-nav-bar .sub-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  min-width: 270px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  border-top: 3px solid #1b6f3c;
+  display: none;
+  z-index: 1000;
+  border-radius: 0 0 4px 4px;
+}
+#header-nav-bar li:hover > .sub-menu {
+  display: block;
+  animation: navFadeIn 0.2s ease-out;
+}
+@keyframes navFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#header-nav-bar .sub-menu li {
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+}
+#header-nav-bar .sub-menu li:last-child {
+  border-bottom: none;
+}
+#header-nav-bar .sub-menu li a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  color: #333333 !important;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  line-height: 1.3;
+}
+#header-nav-bar .sub-menu li:hover > a {
+  background-color: #1b6f3c;
+  color: #ffffff !important;
+}
+
+/* Level 2 Submenu (Flyout to the right) */
+#header-nav-bar .sub-menu.level-2 {
+  top: 0;
+  left: 100%;
+  min-width: 250px;
+  border-top: none;
+  border-left: 3px solid #1b6f3c;
+  box-shadow: 4px 6px 20px rgba(0,0,0,0.18);
+  border-radius: 0 4px 4px 4px;
+}
+#header-nav-bar .sub-menu.level-2 li a {
+  text-transform: none;
+  font-weight: 500;
+  font-size: 13.5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 849px) {
+  #header-nav-bar {
+    display: none;
+  }
+}
+</style>
+
 </head>
 
 <body class="wp-singular post-template-default single single-post postid-75 single-format-standard wp-custom-logo wp-theme-flatsome wp-child-theme-matbaows header-shadow lightbox nav-dropdown-has-arrow nav-dropdown-has-shadow">
@@ -265,14 +398,6 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
           <!-- Right Elements -->
           <div class="flex-col hide-for-medium flex-right">
             <ul class="header-nav header-nav-main nav nav-right  nav-line-bottom nav-size-medium nav-spacing-xlarge">
-<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../../" class="nav-top-link">Trang Chủ</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../../gioi-thieu/" class="nav-top-link">Giới Thiệu</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../../may-photocopy/" class="nav-top-link">Máy Photocopy</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../../may-in-sieu-toc/" class="nav-top-link">Máy In Siêu Tốc</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../../thiet-bi-sau-in/" class="nav-top-link">Thiết Bị Sau In</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../../van-phong-pham/" class="nav-top-link">Văn Phòng Phẩm</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom active current"><a href="../../tin-tuc/" class="nav-top-link">Tin Tức</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom"><a href="../../lien-he/" class="nav-top-link">Liên Hệ</a></li>
 <li class="header-search-icon menu-item"><a href="#" id="desktop-search-toggle" class="nav-top-link" aria-label="Tìm kiếm" onclick="event.preventDefault();document.getElementById('header-search-dropdown').classList.toggle('is-open');document.getElementById('header-search-input').focus();"><i class="icon-search"></i></a></li>
 </ul>
           </div>
@@ -296,6 +421,82 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <div class="header-bg-container fill"><div class="header-bg-image fill"></div><div class="header-bg-color fill"></div></div>		</div>
 	</header>
+
+<!-- MAIN NAVIGATION BAR (Huong Son Style) -->
+<div id="header-nav-bar">
+  <div class="main-nav-container">
+    <ul class="main-nav-menu">
+      
+      <!-- DANH MỤC SẢN PHẨM (Nested Dropdown) -->
+      <li class="has-sub">
+        <a href="../../may-photocopy/" class="arrow-down">DANH MỤC SẢN PHẨM</a>
+        <ul class="sub-menu level-1">
+          <li class="has-sub-2">
+            <a href="../../thiet-bi-sau-in/" class="arrow-right">DUPLO - CÁC THIẾT BỊ SAU IN</a>
+            <ul class="sub-menu level-2">
+              <li><a href="../../thiet-bi-sau-in/">Máy in siêu tốc Duplo</a></li>
+              <li><a href="../../thiet-bi-sau-in/">Máy cắt xén nếp Duplo</a></li>
+              <li><a href="../../thiet-bi-sau-in/">Thiết bị gia công sau in</a></li>
+            </ul>
+          </li>
+          <li class="has-sub-2">
+            <a href="../../may-photocopy/" class="arrow-right">MÁY PHOTOCOPY</a>
+            <ul class="sub-menu level-2">
+              <li><a href="../../may-photocopy/">PHOTOCOPY KONICAMINOLTA</a></li>
+              <li><a href="../../may-photocopy/">Máy photo Toshiba</a></li>
+              <li><a href="../../may-photocopy/">Máy photocopy RICOH</a></li>
+            </ul>
+          </li>
+          <li class="has-sub-2">
+            <a href="../../may-in-sieu-toc/" class="arrow-right">MÁY IN - LASER - RICOH</a>
+            <ul class="sub-menu level-2">
+              <li><a href="../../may-in-sieu-toc/">Máy in Laser đa năng Ricoh</a></li>
+              <li><a href="../../may-in-sieu-toc/">Máy in công nghiệp Ricoh</a></li>
+            </ul>
+          </li>
+          <li class="has-sub-2">
+            <a href="../../may-photocopy/" class="arrow-right">VẬT TƯ LINH KIỆN PHOTOCOPY - IN</a>
+            <ul class="sub-menu level-2">
+              <li><a href="../../may-photocopy/">Mực in & Lô sấy Photocopy</a></li>
+              <li><a href="../../may-photocopy/">Linh kiện thay thế chính hãng</a></li>
+            </ul>
+          </li>
+          <li class="has-sub-2">
+            <a href="../../van-phong-pham/" class="arrow-right">VĂN PHÒNG PHẨM</a>
+            <ul class="sub-menu level-2">
+              <li><a href="../../van-phong-pham/">Giấy in & Bìa hồ sơ</a></li>
+              <li><a href="../../van-phong-pham/">Dụng cụ văn phòng phẩm</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <!-- TRANG CHỦ -->
+      <li ><a href="../../">TRANG CHỦ</a></li>
+
+      <!-- GIỚI THIỆU CÔNG TY -->
+      <li ><a href="../../gioi-thieu/">GIỚI THIỆU CÔNG TY</a></li>
+
+      <!-- LIÊN HỆ -->
+      <li ><a href="../../lien-he/">LIÊN HỆ</a></li>
+
+      <!-- DỊCH VỤ (Dropdown) -->
+      <li class="has-sub">
+        <a href="../../gioi-thieu/" class="arrow-down">DỊCH VỤ</a>
+        <ul class="sub-menu level-1">
+          <li><a href="../../may-in-sieu-toc/">DỊCH VỤ MÁY IN LASER</a></li>
+          <li><a href="../../may-photocopy/">DỊCH VỤ BẢO TRÌ BẢO DƯỠNG MÁY PHOTOCOPY</a></li>
+          <li><a href="../../may-photocopy/">DỊCH VỤ CHO THUÊ MÁY PHOTOCOPY - COPYPRINTER - MÁY IN SIÊU TỐC</a></li>
+        </ul>
+      </li>
+
+      <!-- TIN TỨC - SỰ KIỆN -->
+      <li class="active"><a href="../../tin-tuc/">TIN TỨC - SỰ KIỆN</a></li>
+
+    </ul>
+  </div>
+</div>
+
 
 <!-- Slide-down Search Bar -->
 <div id="header-search-dropdown">
