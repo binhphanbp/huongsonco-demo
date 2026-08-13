@@ -185,12 +185,34 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 
 <style id="huongson-header-nav-css">
-/* Clean Modern Single-Row White Header */
-#header .header-main {
+/* Clean Modern Single-Row White Header with Bulletproof Sticky */
+#header {
+  position: relative;
+  z-index: 999;
+}
+
+#masthead.header-main {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
   background-color: #ffffff !important;
   border-bottom: 1px solid #eaeaea;
   min-height: 65px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
 }
+
+/* Prevent Flatsome JS fixed positioning glitches that cause top bar clipping */
+#header.stuck,
+.stuck #masthead,
+#masthead.stuck {
+  position: sticky !important;
+  top: 0 !important;
+  transform: none !important;
+  left: auto !important;
+  right: auto !important;
+  width: 100% !important;
+}
+
 .header-bg-color {
   background-color: #ffffff !important;
 }
@@ -2089,23 +2111,7 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
 </script>
 
 
-<script>
-// Hide top bar on scroll, show on scroll back up
-(function() {
-  var topBar = document.getElementById('header-top-bar');
-  var lastScroll = 0;
-  if (!topBar) return;
-  window.addEventListener('scroll', function() {
-    var st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > 80) {
-      topBar.style.display = 'none';
-    } else {
-      topBar.style.display = '';
-    }
-    lastScroll = st;
-  });
-})();
-</script>
+
 
 <script>
 // Close search dropdown on click outside or Escape
