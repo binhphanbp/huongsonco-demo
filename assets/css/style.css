@@ -81,39 +81,75 @@ body .container-left {
   padding-left: calc((100vw - 1215px) / 2) !important;
 }
 body .section-title {
-  gap: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
   border-bottom: none !important;
+  gap: 0 !important;
 }
 body .section-title .section-title-main {
-  border-bottom: none;
-  border-left: 10px solid var(--fs-color-secondary) !important;
-  padding-left: 15px;
-  line-height: 1;
-  padding-bottom: 0;
+  position: relative;
+  display: inline-block;
+  border-left: none !important;
+  padding-left: 0 !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: #1b6f3c !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-bottom: 10px;
+  line-height: 1.2;
 }
 body .section-title .section-title-main::after {
   content: "";
-  display: inline-block;
-  width: 200px;
-  height: 5px;
-  background-color: var(--fs-color-secondary);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3.5px;
+  background: linear-gradient(90deg, #1b6f3c 0%, #c8962e 100%);
+  border-radius: 3px;
+  margin-left: 0 !important;
+}
+body .section-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eaeaea;
   margin-left: 20px;
 }
-@media (max-width: 768px) {
-  body .section-title .section-title-main::after {
-    display: none;
-  }
+body .no-divider::after {
+  display: none !important;
+}
+
+/* Modern Pill Styling for 'Xem thêm' section links */
+body .section-title a {
+  margin-left: auto;
+  background: #f4f9f5;
+  color: #1b6f3c !important;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid #d0e5d7;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 body .section-title a:hover {
-  color: var(--fs-color-secondary) !important;
+  background: #1b6f3c !important;
+  color: #ffffff !important;
+  border-color: #1b6f3c !important;
+  box-shadow: 0 4px 12px rgba(27, 111, 60, 0.2);
 }
 @media (max-width: 767px) {
   body .section-title a {
-    margin-left: 0;
+    padding: 4px 10px;
+    font-size: 12px;
   }
-}
-body .no-divider .section-title-main::after {
-  display: none;
 }
 body .banner {
   border-radius: 10px;
@@ -384,9 +420,7 @@ body .capitalize {
   color: var(--fs-color-primary);
 }
 
-.widget-title .section-title .section-title-main::after {
-  width: 80px;
-}
+
 
 .vertical-reverse .box {
   display: flex;
