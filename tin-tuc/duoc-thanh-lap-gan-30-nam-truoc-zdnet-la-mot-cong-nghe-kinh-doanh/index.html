@@ -123,6 +123,43 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	
 	<header id="header" class="header ">
 		<div class="header-wrapper">
+<!-- TOP INFO BAR -->
+<div id="header-top-bar">
+  <div class="container" style="max-width:1240px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; padding:0 15px;">
+    <div class="top-bar-left" style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;">
+      <span style="display:inline-flex; align-items:center; gap:5px;">
+        <i class="icon-phone" style="font-size:13px;"></i>
+        <strong>Hotline:</strong> <a href="tel:0913237302" style="color:#fff; font-weight:700;">0913 237 302</a> - <a href="tel:02439729484" style="color:#fff;">024 3972 9484</a>
+      </span>
+      <span style="display:inline-flex; align-items:center; gap:5px;">
+        <i class="icon-envelop" style="font-size:12px;"></i>
+        <a href="mailto:info@huongsonco.com.vn" style="color:#fff;">info@huongsonco.com.vn</a>
+      </span>
+    </div>
+    <div class="top-bar-right" style="display:flex; align-items:center; gap:5px;">
+      <i class="icon-clock" style="font-size:12px;"></i>
+      <span>T2 - T6: 8h00 - 11h30 | 13h30 - 17h00</span>
+    </div>
+  </div>
+</div>
+<style>
+#header-top-bar {
+  background-color: #1b6f3c;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 0;
+  line-height: 1.4;
+}
+#header-top-bar a { color: #fff; text-decoration: none; }
+#header-top-bar a:hover { color: #c8962e; }
+@media (max-width: 549px) {
+  #header-top-bar .top-bar-right { display: none !important; }
+  #header-top-bar .top-bar-left { width: 100%; justify-content: center; }
+}
+</style>
+
+<!-- MAIN HEADER -->
+
 			<div id="masthead" class="header-main hide-for-sticky">
       <div class="header-inner flex-row container logo-left medium-logo-left" role="navigation">
 
@@ -214,6 +251,38 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <div class="header-bg-container fill"><div class="header-bg-image fill"></div><div class="header-bg-color fill"></div></div>		</div>
 	</header>
+<style>
+/* Header professional styling */
+#header .header-main {
+  border-bottom: 3px solid #1b6f3c;
+}
+.header-bg-color {
+  background-color: #ffffff !important;
+}
+.header:not(.transparent) .header-nav-main.nav > li > a {
+  color: #333 !important;
+  font-weight: 500 !important;
+  font-size: 13px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.header:not(.transparent) .header-nav-main.nav > li > a:hover,
+.header:not(.transparent) .header-nav-main.nav > li.active > a,
+.header:not(.transparent) .header-nav-main.nav > li.current > a {
+  color: #1b6f3c !important;
+}
+.header-nav-main.nav-line-bottom > li > a:before,
+.header-nav-main.nav-line-grow > li > a:before,
+.header-nav-main.nav-line > li > a:before,
+.header-nav-main.nav-box > li > a:hover,
+.header-nav-main.nav-box > li.active > a,
+.header-nav-main.nav-pills > li > a:hover,
+.header-nav-main.nav-pills > li.active > a {
+  color: #FFF !important;
+  background-color: #1b6f3c !important;
+}
+</style>
+
 
 	  <div id="page-header-1582104519" class="page-header-wrapper">
   <div class="page-title light simple-title">
