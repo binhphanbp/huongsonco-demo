@@ -173,22 +173,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <li id="menu-item-672" class="menu-item menu-item-type-taxonomy menu-item-object-category current-menu-item menu-item-672 active menu-item-design-default"><a href="https://blog-tech.matbao.website/thiet-bi-sau-in/" aria-current="page" class="nav-top-link">Thiết Bị Sau In</a></li>
 <li id="menu-item-671" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-671 menu-item-design-default"><a href="https://blog-tech.matbao.website/van-phong-pham/" class="nav-top-link">Văn Phòng Phẩm</a></li>
 <li id="menu-item-101" class="a1i0s0 menu-item menu-item-type-post_type menu-item-object-page menu-item-101 menu-item-design-default"><a href="https://blog-tech.matbao.website/lien-he/" class="nav-top-link">Liên Hệ</a></li>
-<li class="header-search-form search-form html relative has-icon">
-	<div class="header-search-form-wrapper">
-		<div class="searchform-wrapper ux-search-box relative form-flat is-normal"><form method="get" class="searchform" action="https://blog-tech.matbao.website/" role="search">
-		<div class="flex-row relative">
-			<div class="flex-col flex-grow">
-	   	   <input type="search" class="search-field mb-0" name="s" value="" id="s" placeholder="Tìm kiếm..." />
-			</div>
-			<div class="flex-col">
-				<button type="submit" class="ux-search-submit submit-button secondary button icon mb-0" aria-label="Nộp">
-					<i class="icon-search" ></i>				</button>
-			</div>
-		</div>
-    <div class="live-search-results text-left z-top"></div>
-</form>
-</div>	</div>
-</li>
+<li class="header-search-icon menu-item"><a href="#" id="desktop-search-toggle" class="nav-top-link" aria-label="Tìm kiếm" onclick="event.preventDefault();document.getElementById('header-search-dropdown').classList.toggle('is-open');document.getElementById('header-search-input').focus();"><i class="icon-search"></i></a></li>
             </ul>
           </div>
 
@@ -280,14 +265,71 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 body.scrolled #header-top-bar {
   display: none;
 }
-/* Search button style */
-.ux-search-submit.secondary {
-  background-color: #1b6f3c !important;
-  border-color: #1b6f3c !important;
+/* Search icon in nav */
+.header-search-icon a {
+  display: flex !important;
+  align-items: center;
+  font-size: 16px;
+  padding: 10px 8px !important;
 }
-.ux-search-submit.secondary:hover {
-  background-color: #c8962e !important;
-  border-color: #c8962e !important;
+.header-search-icon a:hover i {
+  color: #1b6f3c;
+}
+/* Slide-down Search Bar */
+#header-search-dropdown {
+  display: none;
+  background: #f8f9fa;
+  border-bottom: 2px solid #1b6f3c;
+  padding: 12px 0;
+  position: relative;
+  z-index: 998;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  animation: searchSlideDown 0.25s ease-out;
+}
+#header-search-dropdown.is-open {
+  display: block;
+}
+@keyframes searchSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+#header-search-dropdown input[type="search"] {
+  flex: 1;
+  padding: 10px 16px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: inherit;
+}
+#header-search-dropdown input[type="search"]:focus {
+  border-color: #1b6f3c;
+  box-shadow: 0 0 0 2px rgba(27,111,60,0.15);
+}
+#header-search-dropdown button {
+  background: #1b6f3c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#header-search-dropdown button:hover {
+  background: #c8962e;
+}
+#header-search-close {
+  font-size: 24px;
+  color: #999;
+  text-decoration: none;
+  padding: 0 6px;
+  line-height: 1;
+  font-weight: 300;
+}
+#header-search-close:hover {
+  color: #333;
 }
 </style>
 
@@ -1127,6 +1169,25 @@ var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof H
     lastScroll = st;
   });
 })();
+</script>
+
+<script>
+// Close search dropdown on click outside or Escape
+document.addEventListener('click', function(e) {
+  var dd = document.getElementById('header-search-dropdown');
+  var toggle = document.getElementById('desktop-search-toggle');
+  if (dd && dd.classList.contains('is-open')) {
+    if (!dd.contains(e.target) && e.target !== toggle && !toggle.contains(e.target)) {
+      dd.classList.remove('is-open');
+    }
+  }
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    var dd = document.getElementById('header-search-dropdown');
+    if (dd) dd.classList.remove('is-open');
+  }
+});
 </script>
 </body>
 </html>
