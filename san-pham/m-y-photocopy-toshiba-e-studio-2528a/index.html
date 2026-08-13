@@ -185,27 +185,26 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 
 <style id="huongson-header-nav-css">
-/* Clean Modern Single-Row White Header with Bulletproof Sticky */
-#header {
-  position: relative;
-  z-index: 999;
-}
-
-#masthead.header-main {
+/* Clean Modern Single-Row White Header with 100% Reliable Sticky */
+header#header.header {
   position: sticky !important;
   top: 0 !important;
   z-index: 9999 !important;
   background-color: #ffffff !important;
-  border-bottom: 1px solid #eaeaea;
-  min-height: 65px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.08);
 }
 
-/* Prevent Flatsome JS fixed positioning glitches that cause top bar clipping */
+#masthead.header-main {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #eaeaea;
+  min-height: 65px;
+}
+
+/* Override Flatsome JS position fixed glitches */
 #header.stuck,
 .stuck #masthead,
 #masthead.stuck {
-  position: sticky !important;
+  position: relative !important;
   top: 0 !important;
   transform: none !important;
   left: auto !important;
