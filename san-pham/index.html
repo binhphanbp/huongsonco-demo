@@ -1219,11 +1219,21 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 <script>
 function filterCategory(e, cat) {
-  e.preventDefault();
+  if (e && e.preventDefault) e.preventDefault();
+
+  // Update active button state
   var btns = document.querySelectorAll('.product-filter-btn');
   btns.forEach(function(b) { b.classList.remove('active'); });
-  e.target.classList.add('active');
 
+  // Find and highlight the matching button
+  btns.forEach(function(b) {
+    var onclick = b.getAttribute('onclick') || '';
+    if (onclick.indexOf("'" + cat + "'") !== -1) {
+      b.classList.add('active');
+    }
+  });
+
+  // Filter product cards
   var cards = document.querySelectorAll('#main-product-grid .product-card');
   cards.forEach(function(card) {
     if (cat === 'all' || card.getAttribute('data-category') === cat) {
@@ -1232,13 +1242,27 @@ function filterCategory(e, cat) {
       card.style.display = 'none';
     }
   });
+
+  // Scroll to product grid
+  var grid = document.getElementById('main-product-grid');
+  if (grid && window.location.hash) {
+    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
+// Auto-filter on page load based on URL hash
 window.addEventListener('DOMContentLoaded', function() {
   var hash = window.location.hash.replace('#', '');
   if (hash) {
-    var btn = document.querySelector('.product-filter-btn[onclick*="' + hash + '"]');
-    if (btn) btn.click();
+    filterCategory(null, hash);
+  }
+});
+
+// Also handle hash change (e.g. user clicks back/forward)
+window.addEventListener('hashchange', function() {
+  var hash = window.location.hash.replace('#', '');
+  if (hash) {
+    filterCategory(null, hash);
   }
 });
 </script>
