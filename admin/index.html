@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="vi" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống Quản Trị Admin - Công ty TNHH TM&DV Hương Sơn</title>
-    <link rel="icon" href="../assets/images/huongson-logo.jpg">
+    <title>Trang quản trị - Công ty TNHH TM&DV Hương Sơn | MatBao WS Admin Core</title>
+    <link rel="icon" href="./flaticon.png">
     <link rel="stylesheet" href="./admin-assets/css/styles.css">
     <link rel="stylesheet" href="./admin-assets/css/core-controls.css">
     <link rel="stylesheet" href="./admin-assets/libs/sweetalert2/dist/sweetalert2.min.css">
@@ -18,513 +18,644 @@
         body, h1, h2, h3, h4, h5, h6, .sidebar-nav, .topbar, * {
             font-family: 'Quicksand', sans-serif !important;
         }
-        body {
-            background-color: #f4f7f5 !important;
+        h1, h2, h3, h4, h5, h6 {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif !important;
+            font-weight: 600 !important;
         }
-        
-        /* Custom Header Brand */
-        .admin-brand-header {
-            background: linear-gradient(135deg, #1b6f3c 0%, #104825 100%);
-            color: #ffffff;
-            padding: 14px 20px;
-            border-bottom: 2px solid #c8962e;
+        body, p, .text-muted, .description, .card-subtitle, .form-text, .fs-12, .fs-13, .fs-14 {
+            font-weight: 500 !important;
         }
-
-        /* Sidebar Styling */
-        .left-sidebar {
-            width: 260px;
-            background: #ffffff;
-            border-right: 1px solid #e8ede9;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            z-index: 100;
-            overflow-y: auto;
-            transition: all 0.3s ease;
+        .text-muted:not([class*="fs-"]) {
+            color: #5a6a85 !important;
+            font-size: 13.5px !important;
         }
-        .body-wrapper {
-            margin-left: 260px;
-            min-height: 100vh;
+        .card-body h5, .card h5, h5.fw-semibold, .card-title {
+            font-size: 18px !important;
+            color: #2a3547 !important;
+            font-weight: 600 !important;
         }
-        @media (max-width: 991px) {
-            .left-sidebar {
-                left: -260px;
-            }
-            .left-sidebar.show {
-                left: 0;
-            }
-            .body-wrapper {
-                margin-left: 0;
-            }
+        .card-body p:not([class*="fs-"]), p:not([class*="fs-"]) {
+            font-size: 15px !important;
         }
-
-        .sidebar-nav ul .nav-small-cap {
-            font-size: 11px;
-            font-weight: 700;
-            color: #1b6f3c;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            padding: 15px 20px 8px;
+        label, .form-label {
+            font-size: 14.5px !important;
+            font-weight: 600 !important;
+            color: #2a3547 !important;
         }
-        .sidebar-nav ul .sidebar-item .sidebar-link {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 10px 20px;
-            font-size: 14.5px;
-            font-weight: 600;
-            color: #334155;
-            text-decoration: none;
-            border-radius: 8px;
-            margin: 2px 12px;
-            transition: all 0.2s ease;
+        .btn {
+            font-size: 14.5px !important;
+            font-weight: 600 !important;
         }
-        .sidebar-nav ul .sidebar-item .sidebar-link:hover,
-        .sidebar-nav ul .sidebar-item .sidebar-link.active {
-            background-color: #f0f7f2;
-            color: #1b6f3c;
+        .table th {
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            color: #2a3547 !important;
+            text-transform: none !important;
+            background-color: #ecf2ff !important;
+            border-bottom: 2px solid #dbe7ff !important;
         }
-        .sidebar-nav ul .sidebar-item .sidebar-link.active iconify-icon {
-            color: #1b6f3c;
+        .table td {
+            font-size: 14.5px !important;
+            color: #2a3547 !important;
         }
-
-        /* Topbar Header */
-        .app-topbar {
-            height: 70px;
-            background: #ffffff;
-            border-bottom: 1px solid #e8ede9;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            position: sticky;
-            top: 0;
-            z-index: 90;
+        .table tbody tr:nth-child(even) td {
+            background-color: #f8f9fa !important;
         }
-
-        /* Stat Cards */
-        .stat-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 22px;
-            border: 1px solid #e8ede9;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
+        .badge {
+            font-size: 12px !important;
+            padding: 5px 10px !important;
+            font-weight: 600 !important;
         }
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 24px rgba(27, 111, 60, 0.08);
-            border-color: #c8d6cc;
+        .badge.bg-primary { background-color: #ecf2ff !important; color: #3e66fb !important; }
+        .badge.bg-success { background-color: #e6f9ed !important; color: #137333 !important; }
+        .badge.bg-danger { background-color: #fce8e6 !important; color: #c5221f !important; }
+        .badge.bg-warning { background-color: #fef7e0 !important; color: #b06000 !important; }
+        .badge.bg-info { background-color: #e4f7fb !important; color: #007b83 !important; }
+        .btn-primary { background-color: #c01e25 !important; border-color: #c01e25 !important; color: #ffffff !important; }
+        .btn-primary:hover { background-color: #9c151a !important; border-color: #9c151a !important; }
+        .side-mini-panel { width: 250px !important; }
+        .side-mini-panel .nav-logo { left: 0 !important; width: 250px !important; border-right: 1px solid rgba(0, 0, 0, 0.05); padding: 0 20px !important; }
+        .side-mini-panel .sidebarmenu .sidebar-nav { left: 0 !important; display: block !important; width: 250px !important; border-right: 1px solid rgba(0, 0, 0, 0.05); }
+        @media (min-width: 1300px) {
+            html[data-layout="vertical"] .topbar { width: calc(100% - 250px) !important; }
+            html[data-layout="vertical"] .page-wrapper { margin-left: 250px !important; }
         }
-        .stat-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        /* Badges */
-        .badge-green { background: #e6f7ec; color: #1b6f3c; font-weight: 700; padding: 5px 12px; border-radius: 6px; }
-        .badge-gold { background: #fef7e6; color: #c8962e; font-weight: 700; padding: 5px 12px; border-radius: 6px; }
-        .badge-blue { background: #e8f2ff; color: #2563eb; font-weight: 700; padding: 5px 12px; border-radius: 6px; }
-
-        /* Banner Welcome */
-        .welcome-banner {
-            background: linear-gradient(135deg, #1b6f3c 0%, #247d47 100%);
-            border-radius: 16px;
-            padding: 28px 32px;
-            color: #ffffff;
-            margin-bottom: 24px;
-            box-shadow: 0 8px 24px rgba(27, 111, 60, 0.15);
-        }
+        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link { font-weight: 600 !important; font-size: 14.5px !important; display: flex !important; align-items: center !important; gap: 12px !important; }
+        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link iconify-icon { opacity: 0.95 !important; color: #2a3547 !important; font-size: 19px !important; }
+        .stat-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0, 0, 0, 0.05); }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important; }
+        .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .chart-container { min-height: 320px; position: relative; width: 100%; overflow: hidden; }
     </style>
 </head>
 
 <body>
-    <!-- LEFT SIDEBAR NAV -->
-    <aside class="left-sidebar">
-        <div class="admin-brand-header d-flex align-items-center justify-content-between">
-            <div class="d-flex align-items-center gap-2">
-                <img src="../assets/images/huongson-logo.jpg" alt="Logo" style="height:36px; border-radius:4px; background:#fff; padding:2px;">
-                <div>
-                    <div style="font-weight:800; font-size:14px; line-height:1.2; color:#fff;">HƯƠNG SƠN</div>
-                    <div style="font-size:11px; opacity:0.85; color:#f7d070;">ADMIN PORTAL</div>
+    <div id="main-wrapper">
+        <!-- SIDEBAR START -->
+        <aside class="side-mini-panel with-vertical">
+            <div>
+                <div class="sidebarmenu">
+                    <div class="brand-logo d-flex align-items-center nav-logo py-3">
+                        <a href="./" class="text-nowrap logo-img d-flex align-items-center">
+                            <img src="./matbao-ws-logo.png" width="155" alt="MatBaoWS Admin Core" class="img-fluid">
+                        </a>
+                    </div>
+
+                    <nav class="sidebar-nav" id="menu-right-mini-1" data-simplebar="">
+                        <ul class="sidebar-menu" id="sidebarnav">
+                            <li class="nav-small-cap">
+                                <span class="hide-menu">TỔNG QUAN</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link active" href="javascript:void(0);" id="get-url">
+                                    <iconify-icon icon="solar:chart-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Trang quản trị</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="javascript:void(0);">
+                                    <iconify-icon icon="solar:bill-list-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Đơn hàng</span>
+                                    <span class="badge bg-primary rounded-pill ms-auto">12</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="javascript:void(0);">
+                                    <iconify-icon icon="solar:users-group-two-rounded-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Khách hàng</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-small-cap">
+                                <span class="hide-menu">QUẢN LÝ SẢN PHẨM</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow" href="#submenu-products" data-bs-toggle="collapse" aria-expanded="true">
+                                    <iconify-icon icon="solar:cart-3-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Sản phẩm</span>
+                                </a>
+                                <ul id="submenu-products" class="collapse show first-level list-unstyled ps-3">
+                                    <li class="sidebar-item py-1">
+                                        <a class="sidebar-link py-1" href="javascript:void(0);">
+                                            <span class="icon-small"></span>Danh sách sản phẩm
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item py-1">
+                                        <a class="sidebar-link py-1" href="javascript:void(0);">
+                                            <span class="icon-small"></span>Danh mục sản phẩm
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item py-1">
+                                        <a class="sidebar-link py-1" href="javascript:void(0);">
+                                            <span class="icon-small"></span>Thương hiệu
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="javascript:void(0);">
+                                    <iconify-icon icon="solar:chat-round-line-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Đánh giá bình luận</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="javascript:void(0);">
+                                    <iconify-icon icon="solar:letter-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Liên hệ khách hàng</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-small-cap">
+                                <span class="hide-menu">NỘI DUNG & VẬN HÀNH</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="javascript:void(0);">
+                                    <iconify-icon icon="solar:ticket-sale-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Khuyến mãi & Voucher</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="javascript:void(0);">
+                                    <iconify-icon icon="solar:gallery-bold-duotone"></iconify-icon>
+                                    <span class="hide-menu">Quản lý Banner</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="javascript:void(0);">
+                                    <iconify-icon icon="solar:widget-4-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Bài viết & Tin tức</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="javascript:void(0);">
+                                    <iconify-icon icon="solar:shield-check-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Thành viên & Phân quyền</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="javascript:void(0);">
+                                    <iconify-icon icon="solar:settings-line-duotone"></iconify-icon>
+                                    <span class="hide-menu">Cấu hình hệ thống</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-small-cap mt-3">
+                                <span class="hide-menu">CLIENT WEBSITE</span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link text-primary fw-bold" href="../">
+                                    <iconify-icon icon="solar:home-2-linear" class="text-primary"></iconify-icon>
+                                    <span class="hide-menu">← Xem Trang Client</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
+        </aside>
+        <!-- SIDEBAR END -->
+
+        <!-- PAGE WRAPPER START -->
+        <div class="page-wrapper">
+            <!-- TOPBAR HEADER START -->
+            <header class="topbar">
+                <div class="with-vertical">
+                    <nav class="navbar navbar-expand-lg p-0">
+                        <ul class="navbar-nav">
+                            <li class="nav-item d-flex d-xl-none">
+                                <a class="nav-link nav-icon-hover-bg rounded-circle sidebartoggler" href="javascript:void(0)">
+                                    <iconify-icon icon="solar:hamburger-menu-line-duotone" class="fs-6"></iconify-icon>
+                                </a>
+                            </li>
+                            <li class="nav-item d-none d-xl-flex align-items-center">
+                                <a class="nav-link d-flex align-items-center gap-2" href="../" target="_blank" style="padding: 0 8px;">
+                                    <span class="nav-icon-hover-bg rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                        <iconify-icon icon="solar:home-2-linear" class="fs-6"></iconify-icon>
+                                    </span>
+                                    <span class="site-name fw-bold" style="font-size:15px; color:#2a3547;">Công ty TNHH TM&DV Hương Sơn</span>
+                                </a>
+                            </li>
+                            <li class="nav-item d-none d-xl-flex nav-icon-hover-bg rounded-circle">
+                                <a class="nav-link" href="javascript:void(0)">
+                                    <iconify-icon icon="solar:magnifer-linear" class="fs-6"></iconify-icon>
+                                </a>
+                            </li>
+                            <li class="nav-item d-none d-lg-flex dropdown nav-icon-hover-bg rounded-circle">
+                                <div class="hover-dd">
+                                    <a class="nav-link" href="javascript:void(0)" data-bs-toggle="dropdown">
+                                        <iconify-icon icon="solar:widget-3-linear" class="fs-6"></iconify-icon>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-nav dropdown-menu-animate-up py-0 overflow-hidden" style="min-width: 500px !important;">
+                                        <div class="p-4">
+                                            <div class="row g-3">
+                                                <div class="col-md-6">
+                                                    <a href="https://support.matbao.ws" target="_blank" class="d-flex align-items-center text-decoration-none">
+                                                        <div class="rounded me-3 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px; background-color: #f3ebff;">
+                                                            <iconify-icon icon="solar:lifebuoy-bold-duotone" class="fs-6" style="color: #8a2be2;"></iconify-icon>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0 text-dark fw-bold" style="font-size: 14.5px;">Hướng dẫn sử dụng</h6>
+                                                            <span class="fs-2 text-muted">Tài liệu hướng dẫn</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <a href="mailto:support@matbao.ws" class="d-flex align-items-center text-decoration-none">
+                                                        <div class="rounded me-3 d-flex align-items-center justify-content-center" style="width: 42px; height: 42px; background-color: #fff5e6;">
+                                                            <iconify-icon icon="solar:letter-bold-duotone" class="fs-6" style="color: #ff9900;"></iconify-icon>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-0 text-dark fw-bold" style="font-size: 14.5px;">support@matbao.ws</h6>
+                                                            <span class="fs-2 text-muted">Email hỗ trợ 24/7</span>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end gap-2">
+                                <li class="nav-item">
+                                    <a class="nav-link btn btn-sm btn-outline-danger text-danger fw-bold px-3" href="../" target="_blank">
+                                        <iconify-icon icon="solar:eye-linear" class="me-1"></iconify-icon> Xem Client
+                                    </a>
+                                </li>
+                                <li class="nav-item dropdown nav-icon-hover-bg rounded-circle">
+                                    <a class="nav-link position-relative" href="javascript:void(0)" data-bs-toggle="dropdown">
+                                        <iconify-icon icon="solar:bell-bing-line-duotone" class="fs-6"></iconify-icon>
+                                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up p-3" style="width: 320px;">
+                                        <h6 class="fw-bold mb-3">Thông báo mới (3)</h6>
+                                        <div class="d-flex flex-column gap-2">
+                                            <a href="javascript:void(0)" class="text-decoration-none p-2 rounded hover-bg-light">
+                                                <div class="fw-bold text-dark fs-2">Đơn hàng mới #HD-1052</div>
+                                                <div class="text-muted fs-1">Sở GD&ĐT Hà Nội - Máy in siêu tốc Duplo</div>
+                                            </a>
+                                            <a href="javascript:void(0)" class="text-decoration-none p-2 rounded hover-bg-light">
+                                                <div class="fw-bold text-dark fs-2">Yêu cầu báo giá thuê máy</div>
+                                                <div class="text-muted fs-1">Agribank Chi nhánh Hà Nội</div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link pe-0" href="javascript:void(0)" data-bs-toggle="dropdown">
+                                        <div class="d-flex align-items-center gap-2">
+                                            <div class="rounded-circle bg-danger text-white d-flex align-items-center justify-content-center fw-bold" style="width:36px; height:36px; font-size:13px;">
+                                                SA
+                                            </div>
+                                            <div class="d-none d-lg-block">
+                                                <div class="fw-bold text-dark" style="font-size:13.5px; line-height:1.2;">System Admin</div>
+                                                <div class="text-muted" style="font-size:11.5px;">admin@huongsonco.com.vn</div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            <!-- TOPBAR HEADER END -->
+
+            <!-- BODY CONTENT START -->
+            <div class="body-wrapper">
+                <div class="container-fluid p-4">
+
+                    <!-- HEADER CARD BANNER (Exact matbaows-core-admin style) -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="card shadow-none position-relative overflow-hidden mb-0" style="background: linear-gradient(90deg, #10203C 0%, #193877 50%, #204DA4 100%) !important; border-radius: 12px;">
+                                <div class="card-body px-4 py-4">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-8">
+                                            <h4 class="fw-semibold mb-2 text-white" style="font-size: 22px !important;">Trang quản trị - Bảng điều khiển (Dashboard)</h4>
+                                            <nav style="--bs-breadcrumb-divider: '>'; --bs-breadcrumb-divider-color: rgba(255, 255, 255, 0.6);" aria-label="breadcrumb">
+                                                <ol class="breadcrumb mb-0">
+                                                    <li class="breadcrumb-item">
+                                                        <a class="text-white-50 text-decoration-none" href="./">Trang chủ Admin</a>
+                                                    </li>
+                                                    <li class="breadcrumb-item active text-white" aria-current="page">Dashboard Overview</li>
+                                                </ol>
+                                            </nav>
+                                        </div>
+                                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                            <a href="../" target="_blank" class="btn btn-light fw-bold text-primary px-3 py-2">
+                                                <iconify-icon icon="solar:export-bold-duotone" class="me-1"></iconify-icon> Xem Trang Client Website
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4 STAT CARDS ROW (Exact matbaows-core-admin style) -->
+                    <div class="row mb-4">
+                        <!-- Revenue Card -->
+                        <div class="col-xl-3 col-sm-6 mb-4 mb-xl-0">
+                            <div class="card stat-card shadow-sm h-100 mb-0">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span class="fw-semibold text-muted fs-3">Doanh thu tháng này</span>
+                                        <div class="card-icon bg-success-subtle text-success">
+                                            <iconify-icon icon="solar:dollar-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                                        </div>
+                                    </div>
+                                    <h3 class="fw-bold mb-1 text-dark">856.400.000 ₫</h3>
+                                    <p class="text-success small mb-0 d-flex align-items-center gap-1">
+                                        <iconify-icon icon="solar:round-arrow-right-up-bold-duotone" class="fs-4"></iconify-icon>
+                                        <span>+14.2% so với tháng trước (Hôm nay: 42.500.000 ₫)</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Orders Card -->
+                        <div class="col-xl-3 col-sm-6 mb-4 mb-xl-0">
+                            <div class="card stat-card shadow-sm h-100 mb-0">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span class="fw-semibold text-muted fs-3">Đơn hàng chờ xử lý</span>
+                                        <div class="card-icon bg-warning-subtle text-warning">
+                                            <iconify-icon icon="solar:clock-circle-bold-duotone" class="fs-6"></iconify-icon>
+                                        </div>
+                                    </div>
+                                    <h3 class="fw-bold mb-1 text-dark">12</h3>
+                                    <p class="text-warning small mb-0 d-flex align-items-center gap-1">
+                                        <iconify-icon icon="solar:bell-bing-bold-duotone" class="fs-4"></iconify-icon>
+                                        <span>5 đơn mới trong ngày</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Processing Orders Card -->
+                        <div class="col-xl-3 col-sm-6 mb-4 mb-sm-0">
+                            <div class="card stat-card shadow-sm h-100 mb-0">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span class="fw-semibold text-muted fs-3">Đơn hàng đang xử lý</span>
+                                        <div class="card-icon bg-primary-subtle text-primary">
+                                            <iconify-icon icon="solar:play-circle-bold-duotone" class="fs-6"></iconify-icon>
+                                        </div>
+                                    </div>
+                                    <h3 class="fw-bold mb-1 text-dark">8</h3>
+                                    <p class="text-primary small mb-0 d-flex align-items-center gap-1">
+                                        <iconify-icon icon="solar:refresh-bold-duotone" class="fs-4"></iconify-icon>
+                                        <span>3 đơn đang bàn giao</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Completed Orders Card -->
+                        <div class="col-xl-3 col-sm-6">
+                            <div class="card stat-card shadow-sm h-100 mb-0">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-3">
+                                        <span class="fw-semibold text-muted fs-3">Đơn hàng hoàn tất</span>
+                                        <div class="card-icon bg-info-subtle text-info">
+                                            <iconify-icon icon="solar:clipboard-check-bold-duotone" class="fs-6"></iconify-icon>
+                                        </div>
+                                    </div>
+                                    <h3 class="fw-bold mb-1 text-dark">142</h3>
+                                    <p class="text-info small mb-0 d-flex align-items-center gap-1">
+                                        <iconify-icon icon="solar:pie-chart-bold-duotone" class="fs-4"></iconify-icon>
+                                        <span>Tỷ lệ hoàn thành 94.2%</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CHARTS ROW -->
+                    <div class="row mb-4">
+                        <!-- Revenue Trend Chart -->
+                        <div class="col-lg-8 mb-4 mb-lg-0">
+                            <div class="card shadow-sm h-100 mb-0">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-4">
+                                        <div>
+                                            <h5 class="fw-semibold text-dark mb-1">Biểu đồ doanh thu & đơn hàng tuần này</h5>
+                                            <p class="text-muted small mb-0">Dữ liệu doanh thu thực tế và tổng số đơn hàng xử lý</p>
+                                        </div>
+                                        <span class="badge bg-success-subtle text-success">Tuần 33 / 2026</span>
+                                    </div>
+                                    <div id="revenueChart" class="chart-container"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Status Breakdown Chart -->
+                        <div class="col-lg-4">
+                            <div class="card shadow-sm h-100 mb-0">
+                                <div class="card-body p-4">
+                                    <div class="d-flex align-items-center justify-content-between mb-4">
+                                        <div>
+                                            <h5 class="fw-semibold text-dark mb-1">Tỷ lệ trạng thái đơn hàng</h5>
+                                            <p class="text-muted small mb-0">Phân bố đơn hàng theo trạng thái xử lý</p>
+                                        </div>
+                                    </div>
+                                    <div id="statusChart" class="chart-container d-flex align-items-center justify-content-center"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- REPORTS ROW -->
+                    <div class="row mb-4">
+                        <div class="col-lg-6 mb-4 mb-lg-0">
+                            <div class="card shadow-sm h-100 mb-0">
+                                <div class="card-body p-0">
+                                    <div class="p-4 d-flex align-items-center justify-content-between border-bottom">
+                                        <h5 class="fw-semibold text-dark mb-0">Báo cáo doanh thu năm 2026</h5>
+                                        <span class="badge bg-success-subtle text-success">Cả năm</span>
+                                    </div>
+                                    <div class="p-4">
+                                        <div id="annualRevenueChart" class="chart-container"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card shadow-sm h-100 mb-0">
+                                <div class="card-body p-0">
+                                    <div class="p-4 d-flex align-items-center justify-content-between border-bottom">
+                                        <h5 class="fw-semibold text-dark mb-0">Báo cáo hoạt động kỹ thuật & dịch vụ</h5>
+                                        <span class="badge bg-primary-subtle text-primary">Total: 184 Lượt</span>
+                                    </div>
+                                    <div class="p-4">
+                                        <div id="weeklyTrafficChart" class="chart-container"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RECENT ORDERS TABLE ROW -->
+                    <div class="row mb-4">
+                        <div class="col-12">
+                            <div class="card shadow-sm mb-0">
+                                <div class="card-body p-0">
+                                    <div class="p-4 d-flex align-items-center justify-content-between border-bottom flex-wrap gap-2">
+                                        <h5 class="fw-semibold text-dark mb-0">Đơn hàng & Yêu cầu báo giá mới nhất</h5>
+                                        <a href="javascript:void(0);" class="btn btn-primary btn-sm px-3">+ Thêm Báo Giá / Đơn Hàng</a>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-hover align-middle mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>Mã Đơn</th>
+                                                    <th>Khách Hàng</th>
+                                                    <th>Sản Phẩm / Dịch Vụ</th>
+                                                    <th>Ngày Đặt</th>
+                                                    <th>Tổng Tiền</th>
+                                                    <th>Trạng Thái</th>
+                                                    <th class="text-end">Thao Tác</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="fw-bold text-danger">#HD-1052</td>
+                                                    <td>
+                                                        <div class="fw-bold text-dark">Sở Giáo Dục & Đào Tạo Hà Nội</div>
+                                                        <div class="text-muted fs-2">Anh Nguyễn Văn Hùng (0983 123 4xx)</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="fw-semibold text-dark">Máy in siêu tốc Duplo DP-X550</div>
+                                                        <div class="text-muted fs-2">Gói in đề thi THPT 2026</div>
+                                                    </td>
+                                                    <td>14/08/2026</td>
+                                                    <td class="fw-bold text-dark">125.000.000 ₫</td>
+                                                    <td><span class="badge bg-warning text-warning">Chờ báo giá</span></td>
+                                                    <td class="text-end">
+                                                        <button class="btn btn-sm btn-outline-secondary">Chi tiết</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="fw-bold text-danger">#HD-1051</td>
+                                                    <td>
+                                                        <div class="fw-bold text-dark">Agribank Chi Nhánh Hà Nội</div>
+                                                        <div class="text-muted fs-2">Chị Lê Thị Mai (0912 888 9xx)</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="fw-semibold text-dark">Toshiba e-STUDIO 4528A</div>
+                                                        <div class="text-muted fs-2">Hợp đồng thuê 12 tháng</div>
+                                                    </td>
+                                                    <td>13/08/2026</td>
+                                                    <td class="fw-bold text-dark">45.000.000 ₫</td>
+                                                    <td><span class="badge bg-success text-success">Đã thanh toán</span></td>
+                                                    <td class="text-end">
+                                                        <button class="btn btn-sm btn-outline-secondary">Chi tiết</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="fw-bold text-danger">#HD-1050</td>
+                                                    <td>
+                                                        <div class="fw-bold text-dark">BHXH Quận Cầu Giấy</div>
+                                                        <div class="text-muted fs-2">Anh Trần Minh Tuấn (0977 555 1xx)</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="fw-semibold text-dark">Máy Phối Trang Duplo DFC-122</div>
+                                                        <div class="text-muted fs-2">Mua mới thiết bị sau in</div>
+                                                    </td>
+                                                    <td>12/08/2026</td>
+                                                    <td class="fw-bold text-dark">88.000.000 ₫</td>
+                                                    <td><span class="badge bg-primary text-primary">Đang bàn giao</span></td>
+                                                    <td class="text-end">
+                                                        <button class="btn btn-sm btn-outline-secondary">Chi tiết</button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="fw-bold text-danger">#HD-1049</td>
+                                                    <td>
+                                                        <div class="fw-bold text-dark">THPT Chuyên Hà Nội - Amsterdam</div>
+                                                        <div class="text-muted fs-2">Thầy Phạm Quang Vinh (0904 332 2xx)</div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="fw-semibold text-dark">Dịch vụ Bảo trì Máy Photocopy</div>
+                                                        <div class="text-muted fs-2">Gói bảo dưỡng định kỳ 2026</div>
+                                                    </td>
+                                                    <td>11/08/2026</td>
+                                                    <td class="fw-bold text-dark">15.000.000 ₫</td>
+                                                    <td><span class="badge bg-info text-info">Hoàn thành</span></td>
+                                                    <td class="text-end">
+                                                        <button class="btn btn-sm btn-outline-secondary">Chi tiết</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- BODY CONTENT END -->
         </div>
-
-        <nav class="sidebar-nav">
-            <ul id="sidebarnav" class="list-unstyled mb-0 py-2">
-                <li class="nav-small-cap">BÁO CÁO & TỔNG QUAN</li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link active" href="javascript:void(0);">
-                        <iconify-icon icon="solar:chart-2-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Bảng Điều Khiển (Dashboard)</span>
-                    </a>
-                </li>
-
-                <li class="nav-small-cap">QUẢN LÝ SẢN PHẨM & MÁY</li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0);" onclick="showTab('products')">
-                        <iconify-icon icon="solar:printer-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Danh Sách Sản Phẩm</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0);" onclick="showTab('categories')">
-                        <iconify-icon icon="solar:folder-with-files-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Danh Mục Sản Phẩm</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0);">
-                        <iconify-icon icon="solar:tag-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Thương Hiệu (Toshiba, Duplo...)</span>
-                    </a>
-                </li>
-
-                <li class="nav-small-cap">ĐƠN HÀNG & CHO THUÊ</li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0);" onclick="showTab('orders')">
-                        <iconify-icon icon="solar:document-text-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Yêu Cầu Báo Giá / Đơn Hàng</span>
-                        <span class="badge badge-gold ms-auto">5 Mới</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0);">
-                        <iconify-icon icon="solar:key-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Hợp Đồng Cho Thuê Máy</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0);">
-                        <iconify-icon icon="solar:shield-check-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Bảo Trì & Bảo Dưỡng</span>
-                    </a>
-                </li>
-
-                <li class="nav-small-cap">KHÁCH HÀNG & NỘI DUNG</li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0);">
-                        <iconify-icon icon="solar:users-group-two-rounded-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Khách Hàng (Sở, Trường, Ngân hàng)</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0);">
-                        <iconify-icon icon="solar:notes-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Bài Viết & Tin Tức</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="javascript:void(0);">
-                        <iconify-icon icon="solar:settings-bold-duotone" class="fs-5"></iconify-icon>
-                        <span>Cấu Hình Website & Hotline</span>
-                    </a>
-                </li>
-
-                <li class="nav-small-cap" style="margin-top:20px;">CHUYỂN GIAO DIỆN</li>
-                <li class="sidebar-item">
-                    <a class="sidebar-link" href="../" style="background:#e8f4ec; color:#1b6f3c; font-weight:700;">
-                        <iconify-icon icon="solar:alt-arrow-left-line-duotone" class="fs-5"></iconify-icon>
-                        <span>← Xem Website Client</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
-
-    <!-- BODY WRAPPER -->
-    <div class="body-wrapper">
-        <!-- TOPBAR -->
-        <header class="app-topbar">
-            <div class="d-flex align-items-center gap-3">
-                <button class="btn btn-outline-secondary d-lg-none" onclick="document.querySelector('.left-sidebar').classList.toggle('show')">
-                    <iconify-icon icon="solar:hamburger-menu-bold-duotone" class="fs-6"></iconify-icon>
-                </button>
-                <div class="d-none d-md-flex align-items-center gap-2 text-muted" style="font-size:14px; font-weight:600;">
-                    <iconify-icon icon="solar:home-angle-bold-duotone" class="text-success"></iconify-icon>
-                    <span>Trang Quản Trị Hệ Thống Hương Sơn Backend Admin Core</span>
-                </div>
-            </div>
-
-            <div class="d-flex align-items-center gap-3">
-                <a href="../" class="btn btn-sm btn-outline-success fw-bold d-flex align-items-center gap-1">
-                    <iconify-icon icon="solar:eye-bold-duotone"></iconify-icon>
-                    <span>Xem Trang Client</span>
-                </a>
-
-                <div class="dropdown">
-                    <button class="btn btn-light rounded-circle p-2 d-flex align-items-center justify-content-center position-relative" data-bs-toggle="dropdown">
-                        <iconify-icon icon="solar:bell-bing-bold-duotone" class="fs-5 text-dark"></iconify-icon>
-                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
-                    </button>
-                </div>
-
-                <div class="d-flex align-items-center gap-2 border-start ps-3 ms-2">
-                    <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center fw-bold" style="width:38px; height:38px; font-size:14px;">
-                        HS
-                    </div>
-                    <div class="d-none d-sm-block">
-                        <div style="font-weight:700; font-size:14px; line-height:1.2; color:#1a2e1f;">Quản Trị Viên</div>
-                        <div style="font-size:12px; color:#6b7d6f;">admin@huongsonco.com.vn</div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- MAIN DASHBOARD CONTENT -->
-        <div class="container-fluid p-4">
-
-            <!-- WELCOME BANNER -->
-            <div class="welcome-banner d-flex align-items-center justify-content-between flex-wrap gap-3">
-                <div>
-                    <h3 class="text-white fw-bold mb-1" style="font-size:22px;">Hệ Thống Quản Trị Công Ty TNHH TM&DV Hương Sơn</h3>
-                    <p class="mb-0 text-white-50" style="font-size:14.5px;">Báo cáo tổng quan hoạt động kinh doanh, hợp đồng cho thuê máy photocopy & dịch vụ thiết bị sau in.</p>
-                </div>
-                <div class="d-flex gap-2">
-                    <a href="../" class="btn btn-light fw-bold text-success">
-                        <iconify-icon icon="solar:square-share-line-duotone" class="me-1"></iconify-icon>
-                        Xem Trang Client
-                    </a>
-                </div>
-            </div>
-
-            <!-- STAT CARDS -->
-            <div class="row g-3 mb-4">
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="stat-card">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="text-muted fw-bold">Tổng Doanh Thu Tháng</span>
-                            <div class="stat-icon bg-success-subtle text-success">
-                                <iconify-icon icon="solar:wallet-money-bold-duotone"></iconify-icon>
-                            </div>
-                        </div>
-                        <h3 class="fw-bold text-dark mb-1" style="font-size:26px;">856.400.000 đ</h3>
-                        <div class="d-flex align-items-center gap-1 text-success fw-bold" style="font-size:13px;">
-                            <iconify-icon icon="solar:trending-up-bold"></iconify-icon>
-                            <span>+14.2% so với tháng trước</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="stat-card">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="text-muted fw-bold">Báo Giá / Đơn Hàng Mới</span>
-                            <div class="stat-icon bg-warning-subtle text-warning">
-                                <iconify-icon icon="solar:document-add-bold-duotone"></iconify-icon>
-                            </div>
-                        </div>
-                        <h3 class="fw-bold text-dark mb-1" style="font-size:26px;">38 Đơn</h3>
-                        <div class="d-flex align-items-center gap-1 text-warning fw-bold" style="font-size:13px;">
-                            <iconify-icon icon="solar:clock-circle-bold"></iconify-icon>
-                            <span>12 yêu cầu chờ xử lý</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="stat-card">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="text-muted fw-bold">Máy Photocopy Cho Thuê</span>
-                            <div class="stat-icon bg-primary-subtle text-primary">
-                                <iconify-icon icon="solar:printer-bold-duotone"></iconify-icon>
-                            </div>
-                        </div>
-                        <h3 class="fw-bold text-dark mb-1" style="font-size:26px;">142 Máy</h3>
-                        <div class="d-flex align-items-center gap-1 text-primary fw-bold" style="font-size:13px;">
-                            <iconify-icon icon="solar:check-circle-bold"></iconify-icon>
-                            <span>Tỷ lệ vận hành 94%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-6 col-xl-3">
-                    <div class="stat-card">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="text-muted fw-bold">Khách Hàng Doanh Nghiệp</span>
-                            <div class="stat-icon bg-info-subtle text-info">
-                                <iconify-icon icon="solar:buildings-bold-duotone"></iconify-icon>
-                            </div>
-                        </div>
-                        <h3 class="fw-bold text-dark mb-1" style="font-size:26px;">215 Đơn Vị</h3>
-                        <div class="d-flex align-items-center gap-1 text-info fw-bold" style="font-size:13px;">
-                            <iconify-icon icon="solar:star-bold"></iconify-icon>
-                            <span>Khối Ngân Hàng, Sở & Trường</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CHARTS ROW -->
-            <div class="row g-3 mb-4">
-                <div class="col-12 col-lg-8">
-                    <div class="card border-0 shadow-sm rounded-3 p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <div>
-                                <h5 class="fw-bold text-dark mb-1">Biểu Đồ Doanh Thu & Cho Thuê Máy 2026</h5>
-                                <p class="text-muted mb-0" style="font-size:13.5px;">Theo dõi doanh số dịch vụ cung cấp thiết bị in ấn & photocopy</p>
-                            </div>
-                            <span class="badge badge-green">Năm 2026</span>
-                        </div>
-                        <div id="revenueChart" style="min-height: 280px;"></div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-lg-4">
-                    <div class="card border-0 shadow-sm rounded-3 p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h5 class="fw-bold text-dark mb-0">Tỷ Lệ Danh Mục Bán Chạy</h5>
-                        </div>
-                        <div id="categoryChart" style="min-height: 280px;"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DATA TABLE: YÊU CẦU BÁO GIÁ MỚI -->
-            <div class="card border-0 shadow-sm rounded-3 overflow-hidden mb-4">
-                <div class="card-header bg-white p-4 border-bottom d-flex align-items-center justify-content-between flex-wrap gap-2">
-                    <div>
-                        <h5 class="fw-bold text-dark mb-1">Yêu Cầu Báo Giá & Đơn Hàng Mới Nhất</h5>
-                        <p class="text-muted mb-0" style="font-size:13.5px;">Danh sách khách hàng gửi yêu cầu tư vấn báo giá từ Website Client</p>
-                    </div>
-                    <button class="btn btn-sm btn-success fw-bold">+ Tạo Báo Giá Mới</button>
-                </div>
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle mb-0">
-                        <thead class="bg-light">
-                            <tr>
-                                <th>Khách Hàng</th>
-                                <th>Sản Phẩm / Dịch Vụ</th>
-                                <th>Số Điện Thoại</th>
-                                <th>Ngày Gửi</th>
-                                <th>Trạng Thái</th>
-                                <th class="text-end">Thao Tác</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold text-dark">Sở Giáo Dục & Đào Tạo Hà Nội</div>
-                                    <div class="text-muted" style="font-size:12.5px;">Anh Nguyễn Văn Hùng</div>
-                                </td>
-                                <td>
-                                    <span class="fw-bold text-success">Máy in siêu tốc Duplo DP-X550</span>
-                                    <div class="text-muted" style="font-size:12.5px;">Thuê máy in đề thi THPT</div>
-                                </td>
-                                <td class="fw-semibold">0983 123 4xx</td>
-                                <td>14/08/2026</td>
-                                <td><span class="badge badge-gold">Cần Báo Giá</span></td>
-                                <td class="text-end">
-                                    <button class="btn btn-sm btn-outline-success">Xem Chi Tiết</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold text-dark">Ngân Hàng Agribank Chi Nhánh Hà Nội</div>
-                                    <div class="text-muted" style="font-size:12.5px;">Chị Lê Thị Mai</div>
-                                </td>
-                                <td>
-                                    <span class="fw-bold text-success">Toshiba e-STUDIO 4528A</span>
-                                    <div class="text-muted" style="font-size:12.5px;">Hợp đồng thuê 12 tháng</div>
-                                </td>
-                                <td class="fw-semibold">0912 888 9xx</td>
-                                <td>13/08/2026</td>
-                                <td><span class="badge badge-green">Đã Gửi Báo Giá</span></td>
-                                <td class="text-end">
-                                    <button class="btn btn-sm btn-outline-success">Xem Chi Tiết</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold text-dark">Bảo Hiểm Xã Hội Quận Cầu Giấy</div>
-                                    <div class="text-muted" style="font-size:12.5px;">Anh Trần Minh Tuấn</div>
-                                </td>
-                                <td>
-                                    <span class="fw-bold text-success">Máy Phối Trang Duplo DFC-122</span>
-                                    <div class="text-muted" style="font-size:12.5px;">Mua mới chính hãng</div>
-                                </td>
-                                <td class="fw-semibold">0977 555 1xx</td>
-                                <td>12/08/2026</td>
-                                <td><span class="badge badge-blue">Đã Ký Hợp Đồng</span></td>
-                                <td class="text-end">
-                                    <button class="btn btn-sm btn-outline-success">Xem Chi Tiết</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="fw-bold text-dark">Trường THPT Chuyên Hà Nội - Amsterdam</div>
-                                    <div class="text-muted" style="font-size:12.5px;">Thầy Phạm Quang Vinh</div>
-                                </td>
-                                <td>
-                                    <span class="fw-bold text-success">Bảo Trì Máy Photocopy Ricoh</span>
-                                    <div class="text-muted" style="font-size:12.5px;">Bảo dưỡng định kỳ 2026</div>
-                                </td>
-                                <td class="fw-semibold">0904 332 2xx</td>
-                                <td>11/08/2026</td>
-                                <td><span class="badge badge-green">Hoàn Thành</span></td>
-                                <td class="text-end">
-                                    <button class="btn btn-sm btn-outline-success">Xem Chi Tiết</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-        </div>
+        <!-- PAGE WRAPPER END -->
     </div>
 
     <script src="./admin-assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Revenue Chart (ApexCharts)
+        // ApexCharts Revenue Chart
         var optionsRevenue = {
             series: [{
-                name: 'Doanh Thu Dịch Vụ (Triệu VNĐ)',
-                data: [520, 610, 680, 750, 790, 820, 856]
+                name: 'Doanh thu (Triệu ₫)',
+                data: [42, 58, 65, 72, 80, 85, 95]
             }, {
-                name: 'Hợp Đồng Cho Thuê Máy (Triệu VNĐ)',
-                data: [310, 340, 390, 420, 450, 480, 510]
+                name: 'Đơn hàng (Đơn)',
+                data: [12, 18, 15, 22, 25, 28, 32]
             }],
-            chart: {
-                type: 'area',
-                height: 280,
-                toolbar: { show: false }
-            },
-            colors: ['#1b6f3c', '#c8962e'],
+            chart: { type: 'area', height: 300, toolbar: { show: false } },
+            colors: ['#c01e25', '#5d87ff'],
             dataLabels: { enabled: false },
             stroke: { curve: 'smooth', width: 2 },
-            fill: {
-                type: 'gradient',
-                gradient: { opacityFrom: 0.4, opacityTo: 0.05 }
-            },
-            xaxis: {
-                categories: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8']
-            }
+            fill: { type: 'gradient', gradient: { opacityFrom: 0.3, opacityTo: 0.05 } },
+            xaxis: { categories: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'] }
         };
-        var chartRevenue = new ApexCharts(document.querySelector("#revenueChart"), optionsRevenue);
-        chartRevenue.render();
+        new ApexCharts(document.querySelector("#revenueChart"), optionsRevenue).render();
 
-        // Category Pie Chart
-        var optionsCat = {
-            series: [45, 30, 15, 10],
-            labels: ['Máy Photocopy', 'Máy In Siêu Tốc', 'Thiết Bị Sau In', 'Văn Phòng Phẩm'],
-            chart: {
-                type: 'donut',
-                height: 280
-            },
-            colors: ['#1b6f3c', '#c8962e', '#2563eb', '#64748b'],
+        // ApexCharts Status Chart
+        var optionsStatus = {
+            series: [62, 18, 12, 8],
+            labels: ['Hoàn thành', 'Đang bàn giao', 'Chờ xử lý', 'Đã hủy'],
+            chart: { type: 'donut', height: 280 },
+            colors: ['#137333', '#3e66fb', '#b06000', '#c5221f'],
             legend: { position: 'bottom' }
         };
-        var chartCat = new ApexCharts(document.querySelector("#categoryChart"), optionsCat);
-        chartCat.render();
+        new ApexCharts(document.querySelector("#statusChart"), optionsStatus).render();
+
+        // Annual Revenue Chart
+        var optionsAnnual = {
+            series: [{ name: 'Doanh thu (Triệu ₫)', data: [650, 720, 810, 790, 850, 920, 880, 940, 980, 1050, 1120, 1250] }],
+            chart: { type: 'bar', height: 280, toolbar: { show: false } },
+            colors: ['#c01e25'],
+            plotOptions: { bar: { borderRadius: 4, columnWidth: '45%' } },
+            dataLabels: { enabled: false },
+            xaxis: { categories: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'] }
+        };
+        new ApexCharts(document.querySelector("#annualRevenueChart"), optionsAnnual).render();
+
+        // Weekly Activity Chart
+        var optionsWeekly = {
+            series: [{ name: 'Lượt xử lý', data: [25, 34, 42, 38, 45, 28, 12] }],
+            chart: { type: 'bar', height: 280, toolbar: { show: false } },
+            colors: ['#3e66fb'],
+            plotOptions: { bar: { borderRadius: 4, columnWidth: '45%' } },
+            dataLabels: { enabled: false },
+            xaxis: { categories: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'] }
+        };
+        new ApexCharts(document.querySelector("#weeklyTrafficChart"), optionsWeekly).render();
     </script>
 </body>
 
