@@ -84,40 +84,45 @@ body .section-title {
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 25px;
+  margin-bottom: 28px;
   border-bottom: none !important;
   gap: 0 !important;
 }
 body .section-title .section-title-main {
   position: relative;
-  display: inline-block;
-  border-left: none !important;
-  padding-left: 0 !important;
-  font-size: 20px !important;
-  font-weight: 700 !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 19px !important;
+  font-weight: 800 !important;
   color: #1b6f3c !important;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding-bottom: 10px;
+  letter-spacing: 0.6px;
+  padding: 0 !important;
+  margin: 0 !important;
   line-height: 1.2;
 }
-body .section-title .section-title-main::after {
+/* Left Vertical Accent Pill Indicator */
+body .section-title .section-title-main::before {
   content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 50px;
-  height: 3.5px;
-  background: linear-gradient(90deg, #1b6f3c 0%, #c8962e 100%);
-  border-radius: 3px;
-  margin-left: 0 !important;
+  display: inline-block;
+  width: 4.5px;
+  height: 20px;
+  background: linear-gradient(180deg, #1b6f3c 0%, #c8962e 100%);
+  border-radius: 4px;
 }
+/* Disable competing underline line */
+body .section-title .section-title-main::after {
+  display: none !important;
+}
+/* Right Horizontal Fade-Out Gradient Line */
 body .section-title::after {
   content: "";
   flex: 1;
-  height: 1px;
-  background: #eaeaea;
-  margin-left: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, #d2e4d8 0%, rgba(210, 228, 216, 0.15) 100%);
+  border-radius: 2px;
+  margin-left: 18px;
 }
 body .no-divider::after {
   display: none !important;
@@ -129,13 +134,13 @@ body .dark .section-title .section-title-main,
 .dark-bg .section-title .section-title-main {
   color: #ffffff !important;
 }
-.dark .section-title .section-title-main::after,
-body .dark .section-title .section-title-main::after {
-  background: linear-gradient(90deg, #f7d070 0%, #c8962e 100%) !important;
+.dark .section-title .section-title-main::before,
+body .dark .section-title .section-title-main::before {
+  background: linear-gradient(180deg, #f7d070 0%, #c8962e 100%) !important;
 }
 .dark .section-title::after,
 body .dark .section-title::after {
-  background: rgba(255, 255, 255, 0.2) !important;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%) !important;
 }
 .dark .section-title a,
 body .dark .section-title a {

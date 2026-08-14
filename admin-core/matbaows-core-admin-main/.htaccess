@@ -1,0 +1,23 @@
+Options -Indexes
+
+<IfModule mod_authz_core.c>
+    <FilesMatch "(^\.|^(?:artisan|composer\.(?:json|lock|phar)|phpunit\.xml|vite\.config\.js|package(?:-lock)?\.json)$|\.(?:env|log|sql|sqlite|bak|backup|ini|ya?ml|lock)$)">
+        Require all denied
+    </FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Only the public directory is a web entry point.
+    #
+    # "storage" is deliberately absent from this list: in URL space it is the
+    # public media prefix, not the framework directory. Denying it returns 403
+    # for every image on hosts whose document root is the project root. It needs
+    # no guard here — the rules below prefix every request with "public/", so
+    # "/storage/x" resolves inside public/storage and can never reach the
+    # framework's storage/ directory.
+    RewriteRule ^(?:app|bootstrap|config|database|resources|routes|tests|vendor)(?:/|$) - [F,L,NC]
+    RewriteRule ^public/(.*)$ public/$1 [L]
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
