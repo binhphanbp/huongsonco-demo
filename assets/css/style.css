@@ -115,14 +115,9 @@ body .section-title .section-title-main::before {
 body .section-title .section-title-main::after {
   display: none !important;
 }
-/* Right Horizontal Fade-Out Gradient Line */
+/* Remove long horizontal line after title text */
 body .section-title::after {
-  content: "";
-  flex: 1;
-  height: 2px;
-  background: linear-gradient(90deg, #d2e4d8 0%, rgba(210, 228, 216, 0.15) 100%);
-  border-radius: 2px;
-  margin-left: 18px;
+  display: none !important;
 }
 body .no-divider::after {
   display: none !important;
