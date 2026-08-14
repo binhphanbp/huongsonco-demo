@@ -15,6 +15,10 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 
     <style>
+        :root {
+            --bs-primary: #c01e25 !important;
+            --bs-primary-rgb: 192, 30, 37 !important;
+        }
         body, h1, h2, h3, h4, h5, h6, .sidebar-nav, .topbar, * {
             font-family: 'Quicksand', sans-serif !important;
         }
@@ -66,13 +70,17 @@
             padding: 5px 10px !important;
             font-weight: 600 !important;
         }
-        .badge.bg-primary { background-color: #ecf2ff !important; color: #3e66fb !important; }
+        .badge.bg-primary { background-color: #fce8e6 !important; color: #c01e25 !important; }
         .badge.bg-success { background-color: #e6f9ed !important; color: #137333 !important; }
         .badge.bg-danger { background-color: #fce8e6 !important; color: #c5221f !important; }
         .badge.bg-warning { background-color: #fef7e0 !important; color: #b06000 !important; }
         .badge.bg-info { background-color: #e4f7fb !important; color: #007b83 !important; }
+        
+        /* MatBao WS Primary Red Button & Tab Colors (#c01e25) */
         .btn-primary { background-color: #c01e25 !important; border-color: #c01e25 !important; color: #ffffff !important; }
         .btn-primary:hover { background-color: #9c151a !important; border-color: #9c151a !important; }
+        .btn-outline-primary { border-color: #c01e25 !important; color: #c01e25 !important; }
+        .btn-outline-primary:hover { background-color: #c01e25 !important; color: #ffffff !important; }
         
         .side-mini-panel { width: 250px !important; }
         .side-mini-panel .nav-logo { left: 0 !important; width: 250px !important; border-right: 1px solid rgba(0, 0, 0, 0.05); padding: 0 20px !important; }
@@ -81,20 +89,65 @@
             html[data-layout="vertical"] .topbar { width: calc(100% - 250px) !important; }
             html[data-layout="vertical"] .page-wrapper { margin-left: 250px !important; }
         }
-        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link { font-weight: 600 !important; font-size: 14.5px !important; display: flex !important; align-items: center !important; gap: 12px !important; cursor: pointer; }
-        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link iconify-icon { opacity: 0.95 !important; color: #2a3547 !important; font-size: 19px !important; }
+        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link { 
+            font-weight: 600 !important; 
+            font-size: 14.5px !important; 
+            display: flex !important; 
+            align-items: center !important; 
+            gap: 12px !important; 
+            cursor: pointer;
+            border-radius: 8px !important;
+            margin: 3px 10px !important;
+            transition: all 0.2s ease-in-out;
+        }
+        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link iconify-icon { 
+            opacity: 0.95 !important; 
+            color: #2a3547 !important; 
+            font-size: 19px !important; 
+        }
+
+        /* Active Sidebar Tab - MatBao WS Red (#c01e25) */
+        .side-mini-panel .sidebar-nav ul .sidebar-item > .sidebar-link.active,
+        .side-mini-panel .sidebar-nav ul .sidebar-item.selected > .sidebar-link {
+            background-color: #c01e25 !important;
+            color: #ffffff !important;
+            box-shadow: 0 4px 12px rgba(192, 30, 37, 0.25) !important;
+        }
+        .side-mini-panel .sidebar-nav ul .sidebar-item > .sidebar-link.active iconify-icon,
+        .side-mini-panel .sidebar-nav ul .sidebar-item.selected > .sidebar-link iconify-icon {
+            color: #ffffff !important;
+            opacity: 1 !important;
+        }
+
+        /* Hover Sidebar Item */
+        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link:hover:not(.active) {
+            background-color: #fce8e6 !important;
+            color: #c01e25 !important;
+        }
+        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link:hover:not(.active) iconify-icon {
+            color: #c01e25 !important;
+        }
+
+        /* Active Submenu Item */
+        .side-mini-panel .sidebar-nav ul .sidebar-item .first-level .sidebar-item .sidebar-link.active {
+            background-color: transparent !important;
+            color: #c01e25 !important;
+            font-weight: 700 !important;
+            box-shadow: none !important;
+        }
+        .side-mini-panel .sidebar-nav ul .sidebar-item .first-level .sidebar-item .sidebar-link.active .icon-small {
+            background-color: #c01e25 !important;
+            opacity: 1 !important;
+        }
+
         .stat-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0, 0, 0, 0.05); }
         .stat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important; }
         .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
         .chart-container { min-height: 320px; position: relative; width: 100%; overflow: hidden; }
 
         /* View tab management */
-        .admin-view-section {
-            display: none;
-        }
-        .admin-view-section.active {
-            display: block;
-        }
+        .admin-view-section { display: none; }
+        .admin-view-section.active { display: block; }
     </style>
 </head>
 
@@ -206,8 +259,8 @@
                                 <span class="hide-menu">CLIENT WEBSITE</span>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link text-primary fw-bold" href="../">
-                                    <iconify-icon icon="solar:home-2-linear" class="text-primary"></iconify-icon>
+                                <a class="sidebar-link text-danger fw-bold" href="../">
+                                    <iconify-icon icon="solar:home-2-linear" class="text-danger"></iconify-icon>
                                     <span class="hide-menu">← Xem Trang Client</span>
                                 </a>
                             </li>
@@ -350,7 +403,7 @@
                                                 </nav>
                                             </div>
                                             <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                                                <a href="../" target="_blank" class="btn btn-light fw-bold text-primary px-3 py-2">
+                                                <a href="../" target="_blank" class="btn btn-light fw-bold text-danger px-3 py-2">
                                                     <iconify-icon icon="solar:export-bold-duotone" class="me-1"></iconify-icon> Xem Trang Client Website
                                                 </a>
                                             </div>
@@ -401,12 +454,12 @@
                                     <div class="card-body p-4">
                                         <div class="d-flex align-items-center justify-content-between mb-3">
                                             <span class="fw-semibold text-muted fs-3">Đơn hàng đang xử lý</span>
-                                            <div class="card-icon bg-primary-subtle text-primary">
+                                            <div class="card-icon bg-danger-subtle text-danger">
                                                 <iconify-icon icon="solar:play-circle-bold-duotone" class="fs-6"></iconify-icon>
                                             </div>
                                         </div>
                                         <h3 class="fw-bold mb-1 text-dark">8</h3>
-                                        <p class="text-primary small mb-0 d-flex align-items-center gap-1">
+                                        <p class="text-danger small mb-0 d-flex align-items-center gap-1">
                                             <iconify-icon icon="solar:refresh-bold-duotone" class="fs-4"></iconify-icon>
                                             <span>3 đơn đang bàn giao</span>
                                         </p>
@@ -442,7 +495,7 @@
                                                 <h5 class="fw-semibold text-dark mb-1">Biểu đồ doanh thu & đơn hàng tuần này</h5>
                                                 <p class="text-muted small mb-0">Dữ liệu doanh thu thực tế và tổng số đơn hàng xử lý</p>
                                             </div>
-                                            <span class="badge bg-success-subtle text-success">Tuần 33 / 2026</span>
+                                            <span class="badge bg-danger-subtle text-danger">Tuần 33 / 2026</span>
                                         </div>
                                         <div id="revenueChart" class="chart-container"></div>
                                     </div>
@@ -509,7 +562,7 @@
                                             <tr>
                                                 <td><img src="../assets/images/products/m-y-photocopy-toshiba-e-studio-3028a.jpg" width="48" height="48" class="rounded border object-fit-contain" alt=""></td>
                                                 <td class="fw-bold">Toshiba e-STUDIO 3028A</td>
-                                                <td><span class="badge bg-primary">Máy Photocopy</span></td>
+                                                <td><span class="badge bg-danger">Máy Photocopy</span></td>
                                                 <td>TOSHIBA</td>
                                                 <td class="fw-bold text-danger">Liên hệ báo giá</td>
                                                 <td><span class="badge bg-success">Đang kinh doanh</span></td>
@@ -518,7 +571,7 @@
                                             <tr>
                                                 <td><img src="../assets/images/products/m-y-photocopy-toshiba-e-studio-4528a.jpg" width="48" height="48" class="rounded border object-fit-contain" alt=""></td>
                                                 <td class="fw-bold">Toshiba e-STUDIO 4528A</td>
-                                                <td><span class="badge bg-primary">Máy Photocopy</span></td>
+                                                <td><span class="badge bg-danger">Máy Photocopy</span></td>
                                                 <td>TOSHIBA</td>
                                                 <td class="fw-bold text-danger">Liên hệ báo giá</td>
                                                 <td><span class="badge bg-success">Đang kinh doanh</span></td>
@@ -635,19 +688,19 @@
                                         <tr>
                                             <td class="fw-bold text-dark">Máy Photocopy</td>
                                             <td>may-photocopy</td>
-                                            <td><span class="badge bg-primary">8 máy</span></td>
+                                            <td><span class="badge bg-danger">8 máy</span></td>
                                             <td><span class="badge bg-success">Hiển thị</span></td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold text-dark">Máy In Siêu Tốc</td>
                                             <td>may-in-sieu-toc</td>
-                                            <td><span class="badge bg-primary">6 máy</span></td>
+                                            <td><span class="badge bg-danger">6 máy</span></td>
                                             <td><span class="badge bg-success">Hiển thị</span></td>
                                         </tr>
                                         <tr>
                                             <td class="fw-bold text-dark">Thiết Bị Sau In</td>
                                             <td>thiet-bi-sau-in</td>
-                                            <td><span class="badge bg-primary">4 thiết bị</span></td>
+                                            <td><span class="badge bg-danger">4 thiết bị</span></td>
                                             <td><span class="badge bg-success">Hiển thị</span></td>
                                         </tr>
                                     </tbody>
@@ -687,7 +740,34 @@
                         </div>
                     </div>
 
-                    <!-- VIEW 6: SETTINGS MANAGEMENT -->
+                    <!-- VIEW 6: CONTACTS MANAGEMENT -->
+                    <div id="view-contacts" class="admin-view-section">
+                        <div class="card shadow-sm p-4">
+                            <h5 class="fw-bold mb-3">Danh Sách Liên Hệ Khách Hàng</h5>
+                            <table class="table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Họ Tên</th>
+                                        <th>Email</th>
+                                        <th>Số Điện Thoại</th>
+                                        <th>Nội Dung Yêu Cầu</th>
+                                        <th>Trạng Thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-bold">Nguyễn Văn Hùng</td>
+                                        <td>hungnv@hanoiedu.vn</td>
+                                        <td>0983 123 4xx</td>
+                                        <td>Cần tư vấn báo giá thuê máy in siêu tốc Duplo DP-X550 in đề thi.</td>
+                                        <td><span class="badge bg-danger">Chờ xử lý</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- VIEW 7: SETTINGS MANAGEMENT -->
                     <div id="view-settings" class="admin-view-section">
                         <div class="card shadow-sm p-4">
                             <h5 class="fw-bold mb-4">Cấu Hình Hệ Thống Website Hương Sơn</h5>
@@ -727,19 +807,34 @@
     <script>
         // Single Page View Switcher for Navigation Tabs
         document.querySelectorAll('.nav-item-link').forEach(function(link) {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function(e) {
+                if (this.hasAttribute('data-bs-toggle')) return;
+                
                 // Remove active class from all links
-                document.querySelectorAll('.nav-item-link').forEach(function(l) { l.classList.remove('active'); });
+                document.querySelectorAll('.nav-item-link').forEach(function(l) { 
+                    l.classList.remove('active'); 
+                });
                 this.classList.add('active');
 
+                // If parent li has first-level, also keep parent active
+                var parentLi = this.closest('.first-level');
+                if (parentLi) {
+                    var parentLink = parentLi.previousElementSibling;
+                    if (parentLink) parentLink.classList.add('active');
+                }
+
                 // Hide all view sections
-                document.querySelectorAll('.admin-view-section').forEach(function(sec) { sec.classList.remove('active'); });
+                document.querySelectorAll('.admin-view-section').forEach(function(sec) { 
+                    sec.classList.remove('active'); 
+                });
 
                 // Show target view section
                 var targetId = this.getAttribute('data-target');
-                var targetEl = document.getElementById(targetId);
-                if (targetEl) {
-                    targetEl.classList.add('active');
+                if (targetId) {
+                    var targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        targetEl.classList.add('active');
+                    }
                 }
             });
         });
@@ -754,10 +849,10 @@
                 data: [12, 18, 15, 22, 25, 28, 32]
             }],
             chart: { type: 'area', height: 300, toolbar: { show: false } },
-            colors: ['#c01e25', '#5d87ff'],
+            colors: ['#c01e25', '#e86066'],
             dataLabels: { enabled: false },
             stroke: { curve: 'smooth', width: 2 },
-            fill: { type: 'gradient', gradient: { opacityFrom: 0.3, opacityTo: 0.05 } },
+            fill: { type: 'gradient', gradient: { opacityFrom: 0.35, opacityTo: 0.05 } },
             xaxis: { categories: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'] }
         };
         new ApexCharts(document.querySelector("#revenueChart"), optionsRevenue).render();
@@ -767,7 +862,7 @@
             series: [62, 18, 12, 8],
             labels: ['Hoàn thành', 'Đang bàn giao', 'Chờ xử lý', 'Đã hủy'],
             chart: { type: 'donut', height: 280 },
-            colors: ['#137333', '#3e66fb', '#b06000', '#c5221f'],
+            colors: ['#137333', '#c01e25', '#b06000', '#c5221f'],
             legend: { position: 'bottom' }
         };
         new ApexCharts(document.querySelector("#statusChart"), optionsStatus).render();
