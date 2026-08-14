@@ -73,6 +73,7 @@
         .badge.bg-info { background-color: #e4f7fb !important; color: #007b83 !important; }
         .btn-primary { background-color: #c01e25 !important; border-color: #c01e25 !important; color: #ffffff !important; }
         .btn-primary:hover { background-color: #9c151a !important; border-color: #9c151a !important; }
+        
         .side-mini-panel { width: 250px !important; }
         .side-mini-panel .nav-logo { left: 0 !important; width: 250px !important; border-right: 1px solid rgba(0, 0, 0, 0.05); padding: 0 20px !important; }
         .side-mini-panel .sidebarmenu .sidebar-nav { left: 0 !important; display: block !important; width: 250px !important; border-right: 1px solid rgba(0, 0, 0, 0.05); }
@@ -80,12 +81,20 @@
             html[data-layout="vertical"] .topbar { width: calc(100% - 250px) !important; }
             html[data-layout="vertical"] .page-wrapper { margin-left: 250px !important; }
         }
-        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link { font-weight: 600 !important; font-size: 14.5px !important; display: flex !important; align-items: center !important; gap: 12px !important; }
+        .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link { font-weight: 600 !important; font-size: 14.5px !important; display: flex !important; align-items: center !important; gap: 12px !important; cursor: pointer; }
         .side-mini-panel .sidebar-nav ul .sidebar-item .sidebar-link iconify-icon { opacity: 0.95 !important; color: #2a3547 !important; font-size: 19px !important; }
         .stat-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid rgba(0, 0, 0, 0.05); }
         .stat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important; }
         .card-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
         .chart-container { min-height: 320px; position: relative; width: 100%; overflow: hidden; }
+
+        /* View tab management */
+        .admin-view-section {
+            display: none;
+        }
+        .admin-view-section.active {
+            display: block;
+        }
     </style>
 </head>
 
@@ -107,20 +116,20 @@
                                 <span class="hide-menu">TỔNG QUAN</span>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link active" href="javascript:void(0);" id="get-url">
+                                <a class="sidebar-link active nav-item-link" data-target="view-dashboard">
                                     <iconify-icon icon="solar:chart-line-duotone"></iconify-icon>
                                     <span class="hide-menu">Trang quản trị</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="javascript:void(0);">
+                                <a class="sidebar-link nav-item-link" data-target="view-orders">
                                     <iconify-icon icon="solar:bill-list-line-duotone"></iconify-icon>
                                     <span class="hide-menu">Đơn hàng</span>
                                     <span class="badge bg-primary rounded-pill ms-auto">12</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="javascript:void(0);">
+                                <a class="sidebar-link nav-item-link" data-target="view-customers">
                                     <iconify-icon icon="solar:users-group-two-rounded-line-duotone"></iconify-icon>
                                     <span class="hide-menu">Khách hàng</span>
                                 </a>
@@ -136,30 +145,30 @@
                                 </a>
                                 <ul id="submenu-products" class="collapse show first-level list-unstyled ps-3">
                                     <li class="sidebar-item py-1">
-                                        <a class="sidebar-link py-1" href="javascript:void(0);">
+                                        <a class="sidebar-link nav-item-link py-1" data-target="view-products">
                                             <span class="icon-small"></span>Danh sách sản phẩm
                                         </a>
                                     </li>
                                     <li class="sidebar-item py-1">
-                                        <a class="sidebar-link py-1" href="javascript:void(0);">
+                                        <a class="sidebar-link nav-item-link py-1" data-target="view-categories">
                                             <span class="icon-small"></span>Danh mục sản phẩm
                                         </a>
                                     </li>
                                     <li class="sidebar-item py-1">
-                                        <a class="sidebar-link py-1" href="javascript:void(0);">
+                                        <a class="sidebar-link nav-item-link py-1" data-target="view-brands">
                                             <span class="icon-small"></span>Thương hiệu
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="javascript:void(0);">
+                                <a class="sidebar-link nav-item-link" data-target="view-reviews">
                                     <iconify-icon icon="solar:chat-round-line-line-duotone"></iconify-icon>
                                     <span class="hide-menu">Đánh giá bình luận</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="javascript:void(0);">
+                                <a class="sidebar-link nav-item-link" data-target="view-contacts">
                                     <iconify-icon icon="solar:letter-line-duotone"></iconify-icon>
                                     <span class="hide-menu">Liên hệ khách hàng</span>
                                 </a>
@@ -169,31 +178,25 @@
                                 <span class="hide-menu">NỘI DUNG & VẬN HÀNH</span>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="javascript:void(0);">
+                                <a class="sidebar-link nav-item-link" data-target="view-vouchers">
                                     <iconify-icon icon="solar:ticket-sale-line-duotone"></iconify-icon>
                                     <span class="hide-menu">Khuyến mãi & Voucher</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="javascript:void(0);">
+                                <a class="sidebar-link nav-item-link" data-target="view-banners">
                                     <iconify-icon icon="solar:gallery-bold-duotone"></iconify-icon>
                                     <span class="hide-menu">Quản lý Banner</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="javascript:void(0);">
+                                <a class="sidebar-link nav-item-link" data-target="view-posts">
                                     <iconify-icon icon="solar:widget-4-line-duotone"></iconify-icon>
                                     <span class="hide-menu">Bài viết & Tin tức</span>
                                 </a>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link" href="javascript:void(0);">
-                                    <iconify-icon icon="solar:shield-check-line-duotone"></iconify-icon>
-                                    <span class="hide-menu">Thành viên & Phân quyền</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" href="javascript:void(0);">
+                                <a class="sidebar-link nav-item-link" data-target="view-settings">
                                     <iconify-icon icon="solar:settings-line-duotone"></iconify-icon>
                                     <span class="hide-menu">Cấu hình hệ thống</span>
                                 </a>
@@ -327,273 +330,388 @@
             <div class="body-wrapper">
                 <div class="container-fluid p-4">
 
-                    <!-- HEADER CARD BANNER (Exact matbaows-core-admin style) -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <div class="card shadow-none position-relative overflow-hidden mb-0" style="background: linear-gradient(90deg, #10203C 0%, #193877 50%, #204DA4 100%) !important; border-radius: 12px;">
-                                <div class="card-body px-4 py-4">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-8">
-                                            <h4 class="fw-semibold mb-2 text-white" style="font-size: 22px !important;">Trang quản trị - Bảng điều khiển (Dashboard)</h4>
-                                            <nav style="--bs-breadcrumb-divider: '>'; --bs-breadcrumb-divider-color: rgba(255, 255, 255, 0.6);" aria-label="breadcrumb">
-                                                <ol class="breadcrumb mb-0">
-                                                    <li class="breadcrumb-item">
-                                                        <a class="text-white-50 text-decoration-none" href="./">Trang chủ Admin</a>
-                                                    </li>
-                                                    <li class="breadcrumb-item active text-white" aria-current="page">Dashboard Overview</li>
-                                                </ol>
-                                            </nav>
+                    <!-- VIEW 1: DASHBOARD OVERVIEW -->
+                    <div id="view-dashboard" class="admin-view-section active">
+                        <!-- HEADER CARD BANNER -->
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="card shadow-none position-relative overflow-hidden mb-0" style="background: linear-gradient(90deg, #10203C 0%, #193877 50%, #204DA4 100%) !important; border-radius: 12px;">
+                                    <div class="card-body px-4 py-4">
+                                        <div class="row align-items-center">
+                                            <div class="col-md-8">
+                                                <h4 class="fw-semibold mb-2 text-white" style="font-size: 22px !important;">Trang quản trị - Bảng điều khiển (Dashboard)</h4>
+                                                <nav style="--bs-breadcrumb-divider: '>'; --bs-breadcrumb-divider-color: rgba(255, 255, 255, 0.6);" aria-label="breadcrumb">
+                                                    <ol class="breadcrumb mb-0">
+                                                        <li class="breadcrumb-item">
+                                                            <a class="text-white-50 text-decoration-none" href="./">Trang chủ Admin</a>
+                                                        </li>
+                                                        <li class="breadcrumb-item active text-white" aria-current="page">Dashboard Overview</li>
+                                                    </ol>
+                                                </nav>
+                                            </div>
+                                            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                                                <a href="../" target="_blank" class="btn btn-light fw-bold text-primary px-3 py-2">
+                                                    <iconify-icon icon="solar:export-bold-duotone" class="me-1"></iconify-icon> Xem Trang Client Website
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
-                                            <a href="../" target="_blank" class="btn btn-light fw-bold text-primary px-3 py-2">
-                                                <iconify-icon icon="solar:export-bold-duotone" class="me-1"></iconify-icon> Xem Trang Client Website
-                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4 STAT CARDS ROW -->
+                        <div class="row mb-4">
+                            <div class="col-xl-3 col-sm-6 mb-4 mb-xl-0">
+                                <div class="card stat-card shadow-sm h-100 mb-0">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            <span class="fw-semibold text-muted fs-3">Doanh thu tháng này</span>
+                                            <div class="card-icon bg-success-subtle text-success">
+                                                <iconify-icon icon="solar:dollar-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                                            </div>
                                         </div>
+                                        <h3 class="fw-bold mb-1 text-dark">856.400.000 ₫</h3>
+                                        <p class="text-success small mb-0 d-flex align-items-center gap-1">
+                                            <iconify-icon icon="solar:round-arrow-right-up-bold-duotone" class="fs-4"></iconify-icon>
+                                            <span>+14.2% so với tháng trước (Hôm nay: 42.500.000 ₫)</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-4 mb-xl-0">
+                                <div class="card stat-card shadow-sm h-100 mb-0">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            <span class="fw-semibold text-muted fs-3">Đơn hàng chờ xử lý</span>
+                                            <div class="card-icon bg-warning-subtle text-warning">
+                                                <iconify-icon icon="solar:clock-circle-bold-duotone" class="fs-6"></iconify-icon>
+                                            </div>
+                                        </div>
+                                        <h3 class="fw-bold mb-1 text-dark">12</h3>
+                                        <p class="text-warning small mb-0 d-flex align-items-center gap-1">
+                                            <iconify-icon icon="solar:bell-bing-bold-duotone" class="fs-4"></iconify-icon>
+                                            <span>5 đơn mới trong ngày</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 mb-4 mb-sm-0">
+                                <div class="card stat-card shadow-sm h-100 mb-0">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            <span class="fw-semibold text-muted fs-3">Đơn hàng đang xử lý</span>
+                                            <div class="card-icon bg-primary-subtle text-primary">
+                                                <iconify-icon icon="solar:play-circle-bold-duotone" class="fs-6"></iconify-icon>
+                                            </div>
+                                        </div>
+                                        <h3 class="fw-bold mb-1 text-dark">8</h3>
+                                        <p class="text-primary small mb-0 d-flex align-items-center gap-1">
+                                            <iconify-icon icon="solar:refresh-bold-duotone" class="fs-4"></iconify-icon>
+                                            <span>3 đơn đang bàn giao</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6">
+                                <div class="card stat-card shadow-sm h-100 mb-0">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center justify-content-between mb-3">
+                                            <span class="fw-semibold text-muted fs-3">Đơn hàng hoàn tất</span>
+                                            <div class="card-icon bg-info-subtle text-info">
+                                                <iconify-icon icon="solar:clipboard-check-bold-duotone" class="fs-6"></iconify-icon>
+                                            </div>
+                                        </div>
+                                        <h3 class="fw-bold mb-1 text-dark">142</h3>
+                                        <p class="text-info small mb-0 d-flex align-items-center gap-1">
+                                            <iconify-icon icon="solar:pie-chart-bold-duotone" class="fs-4"></iconify-icon>
+                                            <span>Tỷ lệ hoàn thành 94.2%</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CHARTS ROW -->
+                        <div class="row mb-4">
+                            <div class="col-lg-8 mb-4 mb-lg-0">
+                                <div class="card shadow-sm h-100 mb-0">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center justify-content-between mb-4">
+                                            <div>
+                                                <h5 class="fw-semibold text-dark mb-1">Biểu đồ doanh thu & đơn hàng tuần này</h5>
+                                                <p class="text-muted small mb-0">Dữ liệu doanh thu thực tế và tổng số đơn hàng xử lý</p>
+                                            </div>
+                                            <span class="badge bg-success-subtle text-success">Tuần 33 / 2026</span>
+                                        </div>
+                                        <div id="revenueChart" class="chart-container"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card shadow-sm h-100 mb-0">
+                                    <div class="card-body p-4">
+                                        <div class="d-flex align-items-center justify-content-between mb-4">
+                                            <div>
+                                                <h5 class="fw-semibold text-dark mb-1">Tỷ lệ trạng thái đơn hàng</h5>
+                                                <p class="text-muted small mb-0">Phân bố đơn hàng theo trạng thái xử lý</p>
+                                            </div>
+                                        </div>
+                                        <div id="statusChart" class="chart-container d-flex align-items-center justify-content-center"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- 4 STAT CARDS ROW (Exact matbaows-core-admin style) -->
-                    <div class="row mb-4">
-                        <!-- Revenue Card -->
-                        <div class="col-xl-3 col-sm-6 mb-4 mb-xl-0">
-                            <div class="card stat-card shadow-sm h-100 mb-0">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <span class="fw-semibold text-muted fs-3">Doanh thu tháng này</span>
-                                        <div class="card-icon bg-success-subtle text-success">
-                                            <iconify-icon icon="solar:dollar-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
-                                        </div>
+                    <!-- VIEW 2: PRODUCTS MANAGEMENT -->
+                    <div id="view-products" class="admin-view-section">
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="card shadow-none position-relative overflow-hidden mb-0" style="background: linear-gradient(90deg, #10203C 0%, #193877 50%, #204DA4 100%) !important; border-radius: 12px;">
+                                    <div class="card-body px-4 py-4">
+                                        <h4 class="fw-semibold mb-1 text-white">Quản lý Sản Phẩm</h4>
+                                        <p class="text-white-50 mb-0">Danh sách tất cả máy photocopy, máy in siêu tốc và thiết bị sau in chính hãng Hương Sơn</p>
                                     </div>
-                                    <h3 class="fw-bold mb-1 text-dark">856.400.000 ₫</h3>
-                                    <p class="text-success small mb-0 d-flex align-items-center gap-1">
-                                        <iconify-icon icon="solar:round-arrow-right-up-bold-duotone" class="fs-4"></iconify-icon>
-                                        <span>+14.2% so với tháng trước (Hôm nay: 42.500.000 ₫)</span>
-                                    </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Pending Orders Card -->
-                        <div class="col-xl-3 col-sm-6 mb-4 mb-xl-0">
-                            <div class="card stat-card shadow-sm h-100 mb-0">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <span class="fw-semibold text-muted fs-3">Đơn hàng chờ xử lý</span>
-                                        <div class="card-icon bg-warning-subtle text-warning">
-                                            <iconify-icon icon="solar:clock-circle-bold-duotone" class="fs-6"></iconify-icon>
-                                        </div>
+                        <div class="card shadow-sm">
+                            <div class="card-body p-4">
+                                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+                                    <div class="d-flex gap-2">
+                                        <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm..." style="max-width:280px;">
+                                        <select class="form-select" style="max-width:200px;">
+                                            <option>Tất cả danh mục</option>
+                                            <option>Máy Photocopy</option>
+                                            <option>Máy In Siêu Tốc</option>
+                                            <option>Thiết Bị Sau In</option>
+                                        </select>
                                     </div>
-                                    <h3 class="fw-bold mb-1 text-dark">12</h3>
-                                    <p class="text-warning small mb-0 d-flex align-items-center gap-1">
-                                        <iconify-icon icon="solar:bell-bing-bold-duotone" class="fs-4"></iconify-icon>
-                                        <span>5 đơn mới trong ngày</span>
-                                    </p>
+                                    <button class="btn btn-primary">+ Thêm Sản Phẩm Mới</button>
                                 </div>
-                            </div>
-                        </div>
 
-                        <!-- Processing Orders Card -->
-                        <div class="col-xl-3 col-sm-6 mb-4 mb-sm-0">
-                            <div class="card stat-card shadow-sm h-100 mb-0">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <span class="fw-semibold text-muted fs-3">Đơn hàng đang xử lý</span>
-                                        <div class="card-icon bg-primary-subtle text-primary">
-                                            <iconify-icon icon="solar:play-circle-bold-duotone" class="fs-6"></iconify-icon>
-                                        </div>
-                                    </div>
-                                    <h3 class="fw-bold mb-1 text-dark">8</h3>
-                                    <p class="text-primary small mb-0 d-flex align-items-center gap-1">
-                                        <iconify-icon icon="solar:refresh-bold-duotone" class="fs-4"></iconify-icon>
-                                        <span>3 đơn đang bàn giao</span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Completed Orders Card -->
-                        <div class="col-xl-3 col-sm-6">
-                            <div class="card stat-card shadow-sm h-100 mb-0">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <span class="fw-semibold text-muted fs-3">Đơn hàng hoàn tất</span>
-                                        <div class="card-icon bg-info-subtle text-info">
-                                            <iconify-icon icon="solar:clipboard-check-bold-duotone" class="fs-6"></iconify-icon>
-                                        </div>
-                                    </div>
-                                    <h3 class="fw-bold mb-1 text-dark">142</h3>
-                                    <p class="text-info small mb-0 d-flex align-items-center gap-1">
-                                        <iconify-icon icon="solar:pie-chart-bold-duotone" class="fs-4"></iconify-icon>
-                                        <span>Tỷ lệ hoàn thành 94.2%</span>
-                                    </p>
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Hình Ảnh</th>
+                                                <th>Tên Sản Phẩm</th>
+                                                <th>Danh Mục</th>
+                                                <th>Thương Hiệu</th>
+                                                <th>Giá Niêm Yết</th>
+                                                <th>Trạng Thái</th>
+                                                <th class="text-end">Thao Tác</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><img src="../assets/images/products/m-y-photocopy-toshiba-e-studio-3028a.jpg" width="48" height="48" class="rounded border object-fit-contain" alt=""></td>
+                                                <td class="fw-bold">Toshiba e-STUDIO 3028A</td>
+                                                <td><span class="badge bg-primary">Máy Photocopy</span></td>
+                                                <td>TOSHIBA</td>
+                                                <td class="fw-bold text-danger">Liên hệ báo giá</td>
+                                                <td><span class="badge bg-success">Đang kinh doanh</span></td>
+                                                <td class="text-end"><button class="btn btn-sm btn-outline-primary">Sửa</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="../assets/images/products/m-y-photocopy-toshiba-e-studio-4528a.jpg" width="48" height="48" class="rounded border object-fit-contain" alt=""></td>
+                                                <td class="fw-bold">Toshiba e-STUDIO 4528A</td>
+                                                <td><span class="badge bg-primary">Máy Photocopy</span></td>
+                                                <td>TOSHIBA</td>
+                                                <td class="fw-bold text-danger">Liên hệ báo giá</td>
+                                                <td><span class="badge bg-success">Đang kinh doanh</span></td>
+                                                <td class="text-end"><button class="btn btn-sm btn-outline-primary">Sửa</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="../assets/images/products/m-y-nh-n-b-n-si-u-t-c-duplo-dp-x550.jpg" width="48" height="48" class="rounded border object-fit-contain" alt=""></td>
+                                                <td class="fw-bold">Máy Nhân Bản Duplo DP-X550</td>
+                                                <td><span class="badge bg-warning">Máy In Siêu Tốc</span></td>
+                                                <td>DUPLO JAPAN</td>
+                                                <td class="fw-bold text-danger">Liên hệ báo giá</td>
+                                                <td><span class="badge bg-success">Đang kinh doanh</span></td>
+                                                <td class="text-end"><button class="btn btn-sm btn-outline-primary">Sửa</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td><img src="../assets/images/products/m-y-ph-i-trang-s-p-x-p-t-i-li-u-duplo-dfc-122.jpg" width="48" height="48" class="rounded border object-fit-contain" alt=""></td>
+                                                <td class="fw-bold">Máy Phối Trang Duplo DFC-122</td>
+                                                <td><span class="badge bg-info">Thiết Bị Sau In</span></td>
+                                                <td>DUPLO</td>
+                                                <td class="fw-bold text-danger">Liên hệ báo giá</td>
+                                                <td><span class="badge bg-success">Đang kinh doanh</span></td>
+                                                <td class="text-end"><button class="btn btn-sm btn-outline-primary">Sửa</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- CHARTS ROW -->
-                    <div class="row mb-4">
-                        <!-- Revenue Trend Chart -->
-                        <div class="col-lg-8 mb-4 mb-lg-0">
-                            <div class="card shadow-sm h-100 mb-0">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-center justify-content-between mb-4">
-                                        <div>
-                                            <h5 class="fw-semibold text-dark mb-1">Biểu đồ doanh thu & đơn hàng tuần này</h5>
-                                            <p class="text-muted small mb-0">Dữ liệu doanh thu thực tế và tổng số đơn hàng xử lý</p>
-                                        </div>
-                                        <span class="badge bg-success-subtle text-success">Tuần 33 / 2026</span>
+                    <!-- VIEW 3: ORDERS MANAGEMENT -->
+                    <div id="view-orders" class="admin-view-section">
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="card shadow-none position-relative overflow-hidden mb-0" style="background: linear-gradient(90deg, #10203C 0%, #193877 50%, #204DA4 100%) !important; border-radius: 12px;">
+                                    <div class="card-body px-4 py-4">
+                                        <h4 class="fw-semibold mb-1 text-white">Quản lý Đơn Hàng & Yêu Cầu Báo Giá</h4>
+                                        <p class="text-white-50 mb-0">Theo dõi toàn bộ đơn mua máy, hợp đồng cho thuê và dịch vụ bảo trì</p>
                                     </div>
-                                    <div id="revenueChart" class="chart-container"></div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Status Breakdown Chart -->
-                        <div class="col-lg-4">
-                            <div class="card shadow-sm h-100 mb-0">
-                                <div class="card-body p-4">
-                                    <div class="d-flex align-items-center justify-content-between mb-4">
-                                        <div>
-                                            <h5 class="fw-semibold text-dark mb-1">Tỷ lệ trạng thái đơn hàng</h5>
-                                            <p class="text-muted small mb-0">Phân bố đơn hàng theo trạng thái xử lý</p>
-                                        </div>
-                                    </div>
-                                    <div id="statusChart" class="chart-container d-flex align-items-center justify-content-center"></div>
+                        <div class="card shadow-sm">
+                            <div class="card-body p-4">
+                                <ul class="nav nav-tabs mb-4">
+                                    <li class="nav-item"><a class="nav-link active" href="javascript:void(0);">Tất cả (38)</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="javascript:void(0);">Chờ xử lý (12)</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="javascript:void(0);">Đang bàn giao (8)</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="javascript:void(0);">Hoàn thành (18)</a></li>
+                                </ul>
+
+                                <div class="table-responsive">
+                                    <table class="table table-hover align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th>Mã Đơn</th>
+                                                <th>Khách Hàng</th>
+                                                <th>Sản Phẩm</th>
+                                                <th>Ngày Tạo</th>
+                                                <th>Trạng Thái</th>
+                                                <th class="text-end">Hành Động</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="fw-bold text-danger">#HD-1052</td>
+                                                <td>Sở GD&ĐT Hà Nội</td>
+                                                <td>Máy in siêu tốc Duplo DP-X550</td>
+                                                <td>14/08/2026</td>
+                                                <td><span class="badge bg-warning">Chờ báo giá</span></td>
+                                                <td class="text-end"><button class="btn btn-sm btn-primary">Xử lý ngay</button></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fw-bold text-danger">#HD-1051</td>
+                                                <td>Agribank Chi nhánh Hà Nội</td>
+                                                <td>Toshiba e-STUDIO 4528A</td>
+                                                <td>13/08/2026</td>
+                                                <td><span class="badge bg-success">Đã thanh toán</span></td>
+                                                <td class="text-end"><button class="btn btn-sm btn-outline-secondary">Xem</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- REPORTS ROW -->
-                    <div class="row mb-4">
-                        <div class="col-lg-6 mb-4 mb-lg-0">
-                            <div class="card shadow-sm h-100 mb-0">
-                                <div class="card-body p-0">
-                                    <div class="p-4 d-flex align-items-center justify-content-between border-bottom">
-                                        <h5 class="fw-semibold text-dark mb-0">Báo cáo doanh thu năm 2026</h5>
-                                        <span class="badge bg-success-subtle text-success">Cả năm</span>
-                                    </div>
-                                    <div class="p-4">
-                                        <div id="annualRevenueChart" class="chart-container"></div>
+                    <!-- VIEW 4: CATEGORIES MANAGEMENT -->
+                    <div id="view-categories" class="admin-view-section">
+                        <div class="row mb-4">
+                            <div class="col-12">
+                                <div class="card shadow-none position-relative overflow-hidden mb-0" style="background: linear-gradient(90deg, #10203C 0%, #193877 50%, #204DA4 100%) !important; border-radius: 12px;">
+                                    <div class="card-body px-4 py-4">
+                                        <h4 class="fw-semibold mb-1 text-white">Danh Mục Sản Phẩm</h4>
+                                        <p class="text-white-50 mb-0">Cấu hình các nhóm danh mục thiết bị trên Website Client</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="card shadow-sm h-100 mb-0">
-                                <div class="card-body p-0">
-                                    <div class="p-4 d-flex align-items-center justify-content-between border-bottom">
-                                        <h5 class="fw-semibold text-dark mb-0">Báo cáo hoạt động kỹ thuật & dịch vụ</h5>
-                                        <span class="badge bg-primary-subtle text-primary">Total: 184 Lượt</span>
-                                    </div>
-                                    <div class="p-4">
-                                        <div id="weeklyTrafficChart" class="chart-container"></div>
-                                    </div>
-                                </div>
+
+                        <div class="card shadow-sm p-4">
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle">
+                                    <thead>
+                                        <tr>
+                                            <th>Tên Danh Mục</th>
+                                            <th>Slug URL</th>
+                                            <th>Số Sản Phẩm</th>
+                                            <th>Trạng Thái</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="fw-bold text-dark">Máy Photocopy</td>
+                                            <td>may-photocopy</td>
+                                            <td><span class="badge bg-primary">8 máy</span></td>
+                                            <td><span class="badge bg-success">Hiển thị</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold text-dark">Máy In Siêu Tốc</td>
+                                            <td>may-in-sieu-toc</td>
+                                            <td><span class="badge bg-primary">6 máy</span></td>
+                                            <td><span class="badge bg-success">Hiển thị</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="fw-bold text-dark">Thiết Bị Sau In</td>
+                                            <td>thiet-bi-sau-in</td>
+                                            <td><span class="badge bg-primary">4 thiết bị</span></td>
+                                            <td><span class="badge bg-success">Hiển thị</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
 
-                    <!-- RECENT ORDERS TABLE ROW -->
-                    <div class="row mb-4">
-                        <div class="col-12">
-                            <div class="card shadow-sm mb-0">
-                                <div class="card-body p-0">
-                                    <div class="p-4 d-flex align-items-center justify-content-between border-bottom flex-wrap gap-2">
-                                        <h5 class="fw-semibold text-dark mb-0">Đơn hàng & Yêu cầu báo giá mới nhất</h5>
-                                        <a href="javascript:void(0);" class="btn btn-primary btn-sm px-3">+ Thêm Báo Giá / Đơn Hàng</a>
+                    <!-- VIEW 5: CUSTOMERS MANAGEMENT -->
+                    <div id="view-customers" class="admin-view-section">
+                        <div class="card shadow-sm p-4">
+                            <h5 class="fw-bold mb-3">Danh Sách Khách Hàng Doanh Nghiệp</h5>
+                            <table class="table align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Tên Đơn Vị</th>
+                                        <th>Người Liên Hệ</th>
+                                        <th>Số Điện Thoại</th>
+                                        <th>Địa Chỉ</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-bold">Sở Giáo Dục & Đào Tạo Hà Nội</td>
+                                        <td>Anh Nguyễn Văn Hùng</td>
+                                        <td>0983 123 4xx</td>
+                                        <td>Hà Nội</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Agribank Chi Nhánh Hà Nội</td>
+                                        <td>Chị Lê Thị Mai</td>
+                                        <td>0912 888 9xx</td>
+                                        <td>Hà Nội</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- VIEW 6: SETTINGS MANAGEMENT -->
+                    <div id="view-settings" class="admin-view-section">
+                        <div class="card shadow-sm p-4">
+                            <h5 class="fw-bold mb-4">Cấu Hình Hệ Thống Website Hương Sơn</h5>
+                            <form>
+                                <div class="row g-3 mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label">Tên Công Ty</label>
+                                        <input type="text" class="form-control" value="Công ty TNHH TM&DV Hương Sơn">
                                     </div>
-                                    <div class="table-responsive">
-                                        <table class="table table-hover align-middle mb-0">
-                                            <thead>
-                                                <tr>
-                                                    <th>Mã Đơn</th>
-                                                    <th>Khách Hàng</th>
-                                                    <th>Sản Phẩm / Dịch Vụ</th>
-                                                    <th>Ngày Đặt</th>
-                                                    <th>Tổng Tiền</th>
-                                                    <th>Trạng Thái</th>
-                                                    <th class="text-end">Thao Tác</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="fw-bold text-danger">#HD-1052</td>
-                                                    <td>
-                                                        <div class="fw-bold text-dark">Sở Giáo Dục & Đào Tạo Hà Nội</div>
-                                                        <div class="text-muted fs-2">Anh Nguyễn Văn Hùng (0983 123 4xx)</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="fw-semibold text-dark">Máy in siêu tốc Duplo DP-X550</div>
-                                                        <div class="text-muted fs-2">Gói in đề thi THPT 2026</div>
-                                                    </td>
-                                                    <td>14/08/2026</td>
-                                                    <td class="fw-bold text-dark">125.000.000 ₫</td>
-                                                    <td><span class="badge bg-warning text-warning">Chờ báo giá</span></td>
-                                                    <td class="text-end">
-                                                        <button class="btn btn-sm btn-outline-secondary">Chi tiết</button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="fw-bold text-danger">#HD-1051</td>
-                                                    <td>
-                                                        <div class="fw-bold text-dark">Agribank Chi Nhánh Hà Nội</div>
-                                                        <div class="text-muted fs-2">Chị Lê Thị Mai (0912 888 9xx)</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="fw-semibold text-dark">Toshiba e-STUDIO 4528A</div>
-                                                        <div class="text-muted fs-2">Hợp đồng thuê 12 tháng</div>
-                                                    </td>
-                                                    <td>13/08/2026</td>
-                                                    <td class="fw-bold text-dark">45.000.000 ₫</td>
-                                                    <td><span class="badge bg-success text-success">Đã thanh toán</span></td>
-                                                    <td class="text-end">
-                                                        <button class="btn btn-sm btn-outline-secondary">Chi tiết</button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="fw-bold text-danger">#HD-1050</td>
-                                                    <td>
-                                                        <div class="fw-bold text-dark">BHXH Quận Cầu Giấy</div>
-                                                        <div class="text-muted fs-2">Anh Trần Minh Tuấn (0977 555 1xx)</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="fw-semibold text-dark">Máy Phối Trang Duplo DFC-122</div>
-                                                        <div class="text-muted fs-2">Mua mới thiết bị sau in</div>
-                                                    </td>
-                                                    <td>12/08/2026</td>
-                                                    <td class="fw-bold text-dark">88.000.000 ₫</td>
-                                                    <td><span class="badge bg-primary text-primary">Đang bàn giao</span></td>
-                                                    <td class="text-end">
-                                                        <button class="btn btn-sm btn-outline-secondary">Chi tiết</button>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="fw-bold text-danger">#HD-1049</td>
-                                                    <td>
-                                                        <div class="fw-bold text-dark">THPT Chuyên Hà Nội - Amsterdam</div>
-                                                        <div class="text-muted fs-2">Thầy Phạm Quang Vinh (0904 332 2xx)</div>
-                                                    </td>
-                                                    <td>
-                                                        <div class="fw-semibold text-dark">Dịch vụ Bảo trì Máy Photocopy</div>
-                                                        <div class="text-muted fs-2">Gói bảo dưỡng định kỳ 2026</div>
-                                                    </td>
-                                                    <td>11/08/2026</td>
-                                                    <td class="fw-bold text-dark">15.000.000 ₫</td>
-                                                    <td><span class="badge bg-info text-info">Hoàn thành</span></td>
-                                                    <td class="text-end">
-                                                        <button class="btn btn-sm btn-outline-secondary">Chi tiết</button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Hotline Tư Vấn</label>
+                                        <input type="text" class="form-control" value="0913 237 302 - 024 3972 9484">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Email Hệ Thống</label>
+                                        <input type="email" class="form-control" value="info@huongsonco.com.vn">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label">Địa Chỉ</label>
+                                        <input type="text" class="form-control" value="Hà Nội, Việt Nam">
                                     </div>
                                 </div>
-                            </div>
+                                <button type="button" class="btn btn-primary">Lưu Cấu Hình</button>
+                            </form>
                         </div>
                     </div>
 
@@ -607,6 +725,25 @@
     <script src="./admin-assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // Single Page View Switcher for Navigation Tabs
+        document.querySelectorAll('.nav-item-link').forEach(function(link) {
+            link.addEventListener('click', function() {
+                // Remove active class from all links
+                document.querySelectorAll('.nav-item-link').forEach(function(l) { l.classList.remove('active'); });
+                this.classList.add('active');
+
+                // Hide all view sections
+                document.querySelectorAll('.admin-view-section').forEach(function(sec) { sec.classList.remove('active'); });
+
+                // Show target view section
+                var targetId = this.getAttribute('data-target');
+                var targetEl = document.getElementById(targetId);
+                if (targetEl) {
+                    targetEl.classList.add('active');
+                }
+            });
+        });
+
         // ApexCharts Revenue Chart
         var optionsRevenue = {
             series: [{
@@ -634,28 +771,6 @@
             legend: { position: 'bottom' }
         };
         new ApexCharts(document.querySelector("#statusChart"), optionsStatus).render();
-
-        // Annual Revenue Chart
-        var optionsAnnual = {
-            series: [{ name: 'Doanh thu (Triệu ₫)', data: [650, 720, 810, 790, 850, 920, 880, 940, 980, 1050, 1120, 1250] }],
-            chart: { type: 'bar', height: 280, toolbar: { show: false } },
-            colors: ['#c01e25'],
-            plotOptions: { bar: { borderRadius: 4, columnWidth: '45%' } },
-            dataLabels: { enabled: false },
-            xaxis: { categories: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'] }
-        };
-        new ApexCharts(document.querySelector("#annualRevenueChart"), optionsAnnual).render();
-
-        // Weekly Activity Chart
-        var optionsWeekly = {
-            series: [{ name: 'Lượt xử lý', data: [25, 34, 42, 38, 45, 28, 12] }],
-            chart: { type: 'bar', height: 280, toolbar: { show: false } },
-            colors: ['#3e66fb'],
-            plotOptions: { bar: { borderRadius: 4, columnWidth: '45%' } },
-            dataLabels: { enabled: false },
-            xaxis: { categories: ['T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'CN'] }
-        };
-        new ApexCharts(document.querySelector("#weeklyTrafficChart"), optionsWeekly).render();
     </script>
 </body>
 
